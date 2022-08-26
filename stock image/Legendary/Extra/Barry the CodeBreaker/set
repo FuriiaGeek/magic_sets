@@ -1,0 +1,20 @@
+﻿mse_version: 2.0.2
+game: magic
+game_version: 2020-04-25
+stylesheet: m15
+stylesheet_version: 2018-02-09
+set_info:
+	title: Barry, the CodeBreaker
+	artist: Furiia
+	symbol: 
+	masterpiece_symbol: 
+styling:
+	magic-m15:
+		colored_multicolor_land_name: yes
+		use_guild_mana_symbols: no
+		text_box_mana_symbols: magic-mana-small.mse-symbol-font
+		overlay: 
+include_file: card barry the codebreaker
+version_control:
+	type: none
+apprentice_code: 

@@ -1,0 +1,50 @@
+<cockatrice_carddatabase version="4">
+    
+<!--SETTINGS OF CARDS EDITION-->    
+    <sets>
+        <set>
+            <name>Formation</name>
+            <longname>Formation PACKS</longname>
+            <settype>Promo</settype>
+            <releasedate>2022-08-26</releasedate>
+        </set>
+    </sets>
+
+<!--CARDS LIST-->    
+    <cards>
+        <card>
+            <name>Barry, the CodeBreaker</name>
+            <text>"Inchallah": At every upkeep, you may draw a card. Each opponent may draw a card too, if they do: Draw a car.</text>
+                
+
+            <prop>
+                <colors>UB</colors>
+                <type>Legendary Creature — Human Civilian</type>
+                <maintype>Creature</maintype>
+                <cmc>2UB</cmc>
+                <pt>1/4</pt>
+            </prop>
+            <set picURL="http://image.noelshack.com/fichiers/2022/34/5/1661510126-barry-the-codebreaker.png">Formation</set>
+            <tablerow>2</tablerow>
+        </card>
+
+<!--▓▓▓▓▓-->
+
+        <card>
+            <name>Wissem, the CodeMaster</name>
+            <text>As long as your devotion at one color is 4, ‘Wissem, the CodeMaster’ became a creature with every target permanent ability.
+
+Persist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner’s control with a -1/-1 counter on it.)</text>
+
+            <prop>
+                <colors>UWBRG</colors>
+                <type>Legendary Enchantment Creature — God</type>
+                <maintype>Enchantment - Creature</maintype>
+                <cmc>5</cmc>
+                <pt>6/6</pt>
+            </prop>
+            <set picURL="http://image.noelshack.com/fichiers/2022/34/5/1661517126-wissem-the-codemaster.png">Formation</set>
+            <tablerow>2</tablerow>
+        </card>
+
+    </cards>

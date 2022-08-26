@@ -1,0 +1,34 @@
+<cockatrice_carddatabase version="4">
+    
+<!--SETTINGS OF CARDS EDITION-->    
+    <sets>
+        <set>
+            <name>Wissem</name>
+            <longname>Formation PACKS</longname>
+            <settype>Promo</settype>
+            <releasedate>2022-08-26</releasedate>
+        </set>
+    </sets>
+
+<!--CARDS LIST-->    
+    <cards>
+        <card>
+            <name>Wissem, the CodeMaster</name>
+            <text>As long as your devotion at one color is 4, ‘Wissem, the CodeMaster’ became a creature with every target permanent ability.
+
+Persist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner’s control with a -1/-1 counter on it.)</text>
+
+            <prop>
+                <manacost>UWBRG</manacost>
+                <format-commander>legal</format-commander>
+                <format-modern>legal</format-modern>
+                <colors>UWBRG</colors>
+                <type>Legendary Enchantment Creature — God</type>
+                <maintype>Enchantment Creature</maintype>
+                <cmc>5</cmc>
+                <pt>5/5</pt>
+            </prop>
+            <set picURL="http://www.noelshack.com/2022-34-5-1661516688-wissem-the-codemaster.png">Wissem</set>
+            <tablerow>2</tablerow>
+        </card>
+    </cards>

@@ -1,0 +1,49 @@
+<cockatrice_carddatabase version="4">
+    
+<!--SETTINGS OF CARDS EDITION-->    
+    <sets>
+        <set>
+            <name>RPG</name>
+            <longname>RPG PACKS</longname>
+            <settype>Promo</settype>
+            <releasedate>2022-08-24</releasedate>
+        </set>
+    </sets>
+
+<!--CARDS LIST-->    
+    <cards>
+        <card>
+            <name>Wellie Goldpeak</name>
+            <text>Deathtouch
+                BW : Add two poison counter on target artifact an enemy control.
+                Each time an opponnant Tap or Sacrifice an poisoned artifact, move One poison counter on his controler.</text>
+
+            <prop>
+                <colors>WB</colors>
+                <type>Legendary Creature — Halflin Rogue Assassin</type>
+                <maintype>Creature</maintype>
+                <cmc>0W</cmc>
+                <pt>1/2</pt>
+            </prop>
+            <set picURL="http://image.noelshack.com/fichiers/2022/34/3/1661306123-welly-goldpeak-2.jpg">RPG</set>
+            <tablerow>2</tablerow>
+        </card>
+<!--▓▓▓▓▓--> 
+        <card>
+            <name>Wellie Goldpeak</name>
+            <text>Deathtouch
+                BW : Add two poison counter on target artifact an enemy control.
+                Each time an opponnant Tap or Sacrifice an poisoned artifact, move One poison counter on his controler.</text>
+
+            <prop>
+                <colors>WB</colors>
+                <type>Legendary Creature — Halflin Rogue Assassin</type>
+                <maintype>Creature</maintype>
+                <cmc>0W</cmc>
+                <pt>1/2</pt>
+            </prop>
+            <set picURL="http://image.noelshack.com/fichiers/2022/34/3/1661306123-welly-goldpeak-2.jpg">RPG</set>
+            <tablerow>2</tablerow>
+        </card>
+
+    </cards>

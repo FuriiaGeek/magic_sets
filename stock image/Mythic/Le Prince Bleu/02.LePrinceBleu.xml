@@ -1,0 +1,38 @@
+<cockatrice_carddatabase version="4">
+    
+<!--SETTINGS OF CARDS EDITION-->    
+    <sets>
+        <set>
+            <name>RPG</name>
+            <longname>RPG PACKS</longname>
+            <settype>Promo</settype>
+            <releasedate>2022-08-24</releasedate>
+        </set>
+    </sets>
+
+<!--CARDS LIST-->    
+    <cards>
+        <card>
+            <name>Le Prince Bleu</name>
+            <text>+1 : Target creature get flying, create a Treasures Token.
+Can’t be the target from non-flying creature until your next turn.
+
+--▓▓▓▓▓--
+-6 : You got an emblem with:
+“You gain initiative.
+You cannot lose initiative.”
+
+            </text>
+
+            <prop>
+                <colors>1UUU</colors>
+                <type>Mythic Creature — Prince Bleu</type>
+                <maintype>Creature</maintype>
+                <cmc>4</cmc>
+            </prop>
+            <set picURL="http://image.noelshack.com/fichiers/2022/34/5/1661524414-le-prince-bleu.png">RPG</set>
+            <tablerow>2</tablerow>
+        </card>
+<!--▓▓▓▓▓--> 
+
+    </cards>
