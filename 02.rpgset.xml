@@ -677,10 +677,11 @@ Proliferate (Choose any number of permanents and/or players with counters on the
 </card>
 <card>
  <name>Pandora Gate</name>
- <set rarity="uncommon" picURL="https://i.imgur.com/7hAoAiQ.jpg">RPG</set>
+ <set rarity="uncommon" picURL="https://i.imgur.com/FyAepmk.jpg">RPG</set>
  <color></color>
  <manacost></manacost>
- <cmc>0</cmc>
+ <manacost>5</manacost>
+ <cmc>5</cmc>
  <type>Artifact</type>
  <tablerow>1</tablerow>
  <text>4,T: Roll  a d20
