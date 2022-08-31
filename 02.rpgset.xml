@@ -517,12 +517,12 @@ Whenever Razeth, Le Dieux Dragon deals combat damage to a player, you may create
 </card>
 <card>
  <name>Dragomir</name>
- <set rarity="common" picURL="https://i.imgur.com/FMLHHNZ.jpg">RPG</set>
+ <set rarity="common" picURL="https://i.imgur.com/sArPWWK.jpg">RPG</set>
  <color>U</color>
  <manacost>UU</manacost>
  <cmc>2</cmc>
  <type>Creature - Human Wizard </type>
- <pt></pt>
+ <pt>1/2</pt>
  <tablerow>2</tablerow>
  <text>UUU,T: Until end of turn, creatures your opponents control lose hexproof and shroud and can’t have hexproof or shroud.
 U,T: investigate  (Create a colorless Clue artifact token with “2, Sacrifice this artifact: Draw a card.”)</text>
