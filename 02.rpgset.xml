@@ -608,7 +608,7 @@ As long as enchanted creature is black, it gets defender.</text>
  <text>Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.</text>
 </card>
 <card>
- <name>Stone Giant</name>
+ <name>Stone Giant </name>
  <set rarity="common" picURL="https://i.imgur.com/Kdi4LbM.jpg">RPG</set>
  <color>W</color>
  <manacost>3WW</manacost>
@@ -689,7 +689,68 @@ Proliferate (Choose any number of permanents and/or players with counters on the
 10-19|Create three treasure tokens
 20| Put target creature card from a graveyard onto the battlefield under your control.</text>
 </card>
-
+<!-->Basic Land</-->
+        <card>
+            <name>Forest</name>
+            <text>({T}: Add {G}.)</text>
+            <prop>
+                <type>Basic Land — Forest</type>
+                <side>front</side>
+                <cmc>0</cmc>
+                <maintype>Land</maintype>
+            </prop>
+            <set rarity="common" picURL="https://i.imgur.com/F4w1kwR.jpg">RPG</set>
+            <tablerow>0</tablerow>
+        </card>
+        <card>
+            <name>Island</name>
+            <text>({T}: Add {U}.)</text>
+            <prop>
+                <type>Basic Land — Island</type>
+                <side>front</side>
+                <cmc>0</cmc>
+                <maintype>Land</maintype>
+            </prop>
+            <set rarity="common" picURL="https://i.imgur.com/l4dUOR4.jpg">RPG</set>
+            <tablerow>0</tablerow>
+        </card>
+        <card>
+            <name>Mountain</name>
+            <text>({T}: Add {R}.)</text>
+            <prop>
+                <type>Basic Land — Mountain</type>
+                <side>front</side>
+                <cmc>0</cmc>
+                <maintype>Land</maintype>
+            </prop>
+            <set rarity="common" picURL="https://i.imgur.com/YZw7KP6.jpg">RPG</set>
+            <tablerow>0</tablerow>
+        </card>
+        <card>
+            <name>Plains</name>
+            <text>({T}: Add {W}.)</text>
+            <prop>
+                <type>Basic Land — Plains</type>
+                <side>front</side>
+                <cmc>0</cmc>
+                <maintype>Land</maintype>
+            </prop>
+            <set rarity="common" picURL="https://i.imgur.com/stjQNl0.jpg">RPG</set>
+            <tablerow>0</tablerow>
+        </card>
+        <card>
+            <name>Swamp</name>
+            <text>({T}: Add {B}.)</text>
+            <prop>
+                <type>Basic Land — Swamp</type>
+                <side>front</side>
+                <cmc>0</cmc>
+                <maintype>Land</maintype>
+            </prop>
+            <set rarity="common" picURL="https://i.imgur.com/DUp8JoQ.jpg">RPG</set>
+            <tablerow>0</tablerow>
+        </card>
+		
 <!-->Tokens</-->
 <card>
  <name>SpiderT</name>
@@ -702,6 +763,7 @@ Proliferate (Choose any number of permanents and/or players with counters on the
  <token>1</token>
  <tablerow>2</tablerow>
  <text>Deathtouch, Reach</text>
+ <reverse-related>Arachnomancer</reverse-related>
 </card>
 <card>
  <name>ConstructT</name>
@@ -712,6 +774,7 @@ Proliferate (Choose any number of permanents and/or players with counters on the
  <tablerow>2</tablerow>
  <text></text>
  <token>1</token>
+ <reverse-related>B113 M15 DOOM</reverse-related>
 </card>
 <card>
  <name>NinjaT</name>
@@ -722,6 +785,7 @@ Proliferate (Choose any number of permanents and/or players with counters on the
  <tablerow>2</tablerow>
  <text></text>
  <token>1</token>
+ <reverse-related>Shadow Ninjas</reverse-related>
 </card>
 <card>
  <name>ConstructTT</name>
@@ -732,7 +796,23 @@ Proliferate (Choose any number of permanents and/or players with counters on the
  <tablerow>2</tablerow>
  <text></text>
  <token>1</token>
+ <reverse-related>Demonic ebenist</reverse-related>
 </card>
+       <card>
+            <name>Treasure Token</name>
+            <text>{T}, Sacrifice this artifact: Add one mana of any color.</text>
+            <prop>
+                <type>Token Artifact — Treasure</type>
+                <maintype>Artifact</maintype>
+                <cmc>0</cmc>
+            </prop>
+            <set picURL="https://i.imgur.com/lQKIqvw.png">RPG</set>
 
+            <reverse-related>Kurd, Le Contrebandier</reverse-related>
+            <reverse-related>Razeth, Le Dieux Dragon</reverse-related>
+            <reverse-related>Pandora Gate</reverse-related>	
+            <token>1</token>
+            <tablerow>1</tablerow>
+        </card>
 </cards>
 </cockatrice_carddatabase>
