@@ -1,18 +1,17 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <cockatrice_carddatabase version="3">
-<sets>
-<set>
-<name>RPG</name>
-<longname>RPG</longname>
-<settype></settype>
-</set>
-</sets>
+    <sets>
+        <set>
+            <name>RPGT</name>
+            <longname>RPG tokens</longname>
+            <settype>Tokens</settype>
+            <releasedate></releasedate>
+        </set>
+    </sets>
 <cards>
-<!-->Tokens</-->
 <card>
  <name>SpiderT</name>
- <set picURL="https://i.imgur.com/Lwm0ZdQ.jpg">RPG</set>
+ <set picURL="https://i.imgur.com/Lwm0ZdQ.jpg">RPGT</set>
  <color>B</color>
  <manacost></manacost>
  <cmc>0</cmc>
@@ -25,7 +24,7 @@
 </card>
 <card>
  <name>ConstructT</name>
- <set picURL="https://i.imgur.com/g64cDjZ.jpg">RPG</set>
+ <set picURL="https://i.imgur.com/g64cDjZ.jpg">RPGT</set>
  <color></color>
  <type>Token Artifact Creature - Construct </type>
  <pt>1/1</pt>
@@ -36,7 +35,7 @@
 </card>
 <card>
  <name>NinjaT</name>
- <set picURL="https://i.imgur.com/V76BUvS.jpg">RPG</set>
+ <set picURL="https://i.imgur.com/V76BUvS.jpg">RPGT</set>
  <color>B</color>
  <type>Token Creature - Ninja </type>
  <pt>1/1</pt>
@@ -47,7 +46,7 @@
 </card>
 <card>
  <name>ConstructTT</name>
- <set picURL="https://i.imgur.com/j5o9Pz9.jpg">RPG</set>
+ <set picURL="https://i.imgur.com/j5o9Pz9.jpg">RPGT</set>
  <color></color>
  <type>Token Artifact Creature - Construct </type>
  <pt>2/2</pt>
@@ -64,7 +63,7 @@
                 <maintype>Artifact</maintype>
                 <cmc>0</cmc>
             </prop>
-            <set picURL="https://i.imgur.com/lQKIqvw.png">RPG</set>
+            <set picURL="https://i.imgur.com/lQKIqvw.png">RPGT</set>
 
             <reverse-related>Kurd, Le Contrebandier</reverse-related>
             <reverse-related>Razeth, Le Dieux Dragon</reverse-related>
