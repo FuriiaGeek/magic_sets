@@ -1,1 +1,76 @@
 
+<?xml version="1.0" encoding="UTF-8"?>
+<cockatrice_carddatabase version="3">
+<sets>
+<set>
+<name>RPG</name>
+<longname>RPG</longname>
+<settype></settype>
+</set>
+</sets>
+<cards>
+<!-->Tokens</-->
+<card>
+ <name>SpiderT</name>
+ <set picURL="https://i.imgur.com/Lwm0ZdQ.jpg">RPG</set>
+ <color>B</color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Token Creature - Spider </type>
+ <pt>1/1</pt>
+ <token>1</token>
+ <tablerow>2</tablerow>
+ <text>Deathtouch, Reach</text>
+ <reverse-related>Arachnomancer</reverse-related>
+</card>
+<card>
+ <name>ConstructT</name>
+ <set picURL="https://i.imgur.com/g64cDjZ.jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Construct </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+ <reverse-related>B113 M15 DOOM</reverse-related>
+</card>
+<card>
+ <name>NinjaT</name>
+ <set picURL="https://i.imgur.com/V76BUvS.jpg">RPG</set>
+ <color>B</color>
+ <type>Token Creature - Ninja </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+ <reverse-related>Shadow Ninjas</reverse-related>
+</card>
+<card>
+ <name>ConstructTT</name>
+ <set picURL="https://i.imgur.com/j5o9Pz9.jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Construct </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+ <reverse-related>Demonic ebenist</reverse-related>
+</card>
+       <card>
+            <name>Treasure Token</name>
+            <text>{T}, Sacrifice this artifact: Add one mana of any color.</text>
+            <prop>
+                <type>Token Artifact — Treasure</type>
+                <maintype>Artifact</maintype>
+                <cmc>0</cmc>
+            </prop>
+            <set picURL="https://i.imgur.com/lQKIqvw.png">RPG</set>
+
+            <reverse-related>Kurd, Le Contrebandier</reverse-related>
+            <reverse-related>Razeth, Le Dieux Dragon</reverse-related>
+            <reverse-related>Pandora Gate</reverse-related>	
+            <token>1</token>
+            <tablerow>1</tablerow>
+        </card>
+  </cards>
+</cockatrice_carddatabase>
