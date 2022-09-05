@@ -16,6 +16,7 @@
  <manacost></manacost>
  <cmc>0</cmc>
  <type>Land</type>
+ <cipt>1</cipt>
  <tablerow>0</tablerow>
  <text>Valle New Shangai enter the battlefield tapped
 When Valle New Shangai  enters the battlefield, you gain 1 life.
@@ -28,6 +29,7 @@ T: Add R or W</text>
  <manacost></manacost>
  <cmc>0</cmc>
  <type>Land</type>
+ <cipt>1</cipt>
  <tablerow>0</tablerow>
  <text>Village abandonnée enter the battlefield tapped
 When Village abandonnée enters the battlefield, you gain 1 life.
@@ -40,6 +42,7 @@ T: Add W or B</text>
  <manacost></manacost>
  <cmc>0</cmc>
  <type>Land</type>
+ <cipt>1</cipt>
  <tablerow>0</tablerow>
  <text>Repaire des Ébénistes enter the battlefield tapped
 When Repaire des Ébénistes  enters the battlefield, you gain 1 life.
@@ -52,6 +55,7 @@ T: Add B or G</text>
  <manacost></manacost>
  <cmc>0</cmc>
  <type>Land</type>
+ <cipt>1</cipt>
  <tablerow>0</tablerow>
  <text>Murkpoint enter the battlefield tapped
 When Murkpoint enters the battlefield, you gain 1 life.
@@ -63,6 +67,7 @@ T: Add U or R</text>
  <color></color>
  <manacost></manacost>
  <cmc>0</cmc>
+ <cipt>1</cipt>
  <type>Land</type>
  <tablerow>0</tablerow>
  <text>Holy Skar enter the battlefield tapped
@@ -97,7 +102,8 @@ At the beginning of combat on your turn Roll a D20.
 10-19 | All attacking creatures gain double strike until the end of turn.
 20 | Prevent all combat damage that would be dealt to attacking creatures this turn, roll again.
 Partner with Alberic, le journaliste (When this permanent enters the battlefield, target player may put Alberic into their hand from their library, then shuffle.) (When this creature enters the battlefield, target player may put Alberic into their hand from their library, then shuffle.)</text>
-</card>
+ <related>Alberic, le Journaliste</related>
+ </card>
 <card>
  <name>Alberic, le Journaliste</name>
  <set rarity="mythic" picURL="https://i.imgur.com/ufTkBJi.jpg">RPG</set>
@@ -111,6 +117,7 @@ Partner with Alberic, le journaliste (When this permanent enters the battlefield
 1RW: Copy target activate ability you control. You may choose new targets for the copy.
 R/WR/W,T : Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.
 Partner with Tadeuzs, le prince rouge (When this creature enters the battlefield, target player may put Tadeuzs into their hand from their library, then shuffle.)</text>
+ <related>Tadeusz, Le prince Rouge</related>
 </card>
 <card>
  <name>Bardic Performance</name>
@@ -148,6 +155,7 @@ Equip X</text>
 • Create a Treasure token
 • Destroy target artifact or enchantment.
 • Other creatures get +2/+0 until the end of turn</text>
+ <related>Treasure token</related> 
 </card>
 <card>
  <name>Wrong kind of polymorph</name>
@@ -217,6 +225,7 @@ T:Head hunter deals 1 damage to any target.</text>
  <pt>1/1</pt>
  <tablerow>2</tablerow>
  <text>When Demonic ebenist dies, create a 2/2 colorless construct artifact creature token.</text>
+ <related>ConstructTT</related> 
 </card>
 <card>
  <name>RPG system mistmatch</name>
@@ -313,6 +322,7 @@ LEVEL 5+
  <tablerow>2</tablerow>
  <text>Ninjutsu 1B (1B, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.) (1B, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)
 Whenever one or more Ninja or Rogue creatures you control deal combat damage to a player, create a 1/1 black Ninja creature token</text>
+ <related>NinjaT</related> 
 </card>
 <card>
  <name>Version Change</name>
@@ -401,7 +411,8 @@ When Odatech Commander enters the battlefield, return target creature to its own
  <pt>3/3</pt>
  <tablerow>2</tablerow>
  <text>When Eyeblight Cullers dies, create three 1/1 Black spider creature tokens with deathtouch and reach, then mill three cards. (Put the top three cards of your library into your graveyard.)</text>
-</card>
+<related>SpiderT</related>
+ </card>
 <card>
  <name>Cringe</name>
  <set rarity="common" picURL="https://i.imgur.com/R5U4Yjd.jpg">RPG</set>
@@ -419,10 +430,12 @@ When Odatech Commander enters the battlefield, return target creature to its own
  <manacost></manacost>
  <cmc>0</cmc>
  <type>Land</type>
+ <cipt>1</cipt>
  <tablerow>0</tablerow>
  <text>New Mandate Station enters the battlefield tapped unless you control a Plains.
 T: Add W.
 2WW, T: Create a 1/1 white Human creature token.</text>
+ <related>Soldier Token</related>
 </card>
 <card>
  <name>Svala Koridottir, la Viking</name>
@@ -489,6 +502,7 @@ When Odatech Bot enters the battlefield, draw a card.</text>
  <tablerow>2</tablerow>
  <text>Flying
 Whenever Razeth, Le Dieux Dragon deals combat damage to a player, you may create that many Treasure tokens</text>
+ <related>Treasure Token</related>
 </card>
 <card>
  <name>PC Soldier</name>
@@ -526,6 +540,7 @@ Whenever Razeth, Le Dieux Dragon deals combat damage to a player, you may create
  <tablerow>2</tablerow>
  <text>UUU,T: Until end of turn, creatures your opponents control lose hexproof and shroud and can’t have hexproof or shroud.
 U,T: investigate  (Create a colorless Clue artifact token with “2, Sacrifice this artifact: Draw a card.”)</text>
+ <related>Clue Token</related>
 </card>
 <card>
  <name>Edennard</name>
@@ -572,6 +587,7 @@ Flashback 3RR (You may cast this card from your graveyard for its flashback cost
  <tablerow>2</tablerow>
  <text>First strike, vigilance
 When Capitaine Dravis enters the battlefield, create two 1/1 White soldier creature</text>
+ <related>Soldier Token</related>
 </card>
 <card>
  <name>Ernest, le Redneck</name>
@@ -663,6 +679,7 @@ You may play lands and cast spells from the top of your library.</text>
  <tablerow>2</tablerow>
  <text>Changeling (This card is every creature type.)
 When Gordon Ramsey enters the battlefield, you create two Food tokens</text>
+ <related>Food Token</related>
 </card>
 <card>
  <name>Medichine Extreme</name>
@@ -689,6 +706,7 @@ Proliferate (Choose any number of permanents and/or players with counters on the
 2-9| Search your library for a land card, put that card onto the battlefield tapped, then shuffle.
 10-19|Create three treasure tokens
 20| Put target creature card from a graveyard onto the battlefield under your control.</text>
+ <related>ConstructTTT</related>
 </card>
 <!-->Basic Land</-->
         <card>
