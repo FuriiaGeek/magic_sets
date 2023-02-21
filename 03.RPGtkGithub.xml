@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cockatrice_carddatabase version="3">
+<sets>
+<set>
+<name>RPG</name>
+<longname>RPG</longname>
+<settype></settype>
+</set>
+</sets>
+<cards>
+
+<!--Second side: -->
+
+<card>
+ <name>Dragonna</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/dragonna.jpg">RPG</set>
+ <color></color>
+ <related>Keltas's Rising</related>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Legendary Land</type>
+ <tablerow>0</tablerow>
+ <text>(Transforms from Keltas’s Rising.)
+T: Add one mana of any color.
+3BB, T: Put a creature card from a graveyard onto the battlefield under your control.  It becomes a Zombie in addition to its other types.
+---
+(Back): Keltas's Rising</text>
+</card>
+<card>
+ <name>Svala, the Frenzy Werewolf</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/svalathefrenzywerewolf.jpg">RPG</set>
+ <color>RG</color>
+ <manacost></manacost>
+ <cmc>5</cmc>
+ <type>Legendary Creature - Werewolf </type>
+ <pt>6/6</pt>
+ <tablerow>2</tablerow>
+ <text>Haste, trample, indestructible
+
+Nightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)
+---
+(Front): Svala Koridottir, la Viking</text>
+ <related>Svala, the Frenzy Werewolf</related>
+</card>
+<card>
+ <name>StoneBridge Destroyed</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/stonebridgedestroyed.jpg">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land</type>
+ <tablerow>0</tablerow>
+ <text>StoneBridge Destroyed enter the battlefied tapped
+T: Add B or R
+BR,T: Create two 0/1 red Kobold Warrior creature token
+---
+(Front): StoneBridge</text>
+ <related>StoneBridge</related>
+ <related count="1">TKobold Warrior</related>
+  <cipt>1</cipt>
+</card>
+<card>
+ <name>Lyndia 20</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/lyndia20.jpg" >RPG</set>
+ <color>WG</color>
+ <manacost></manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Artificer Soldier </type>
+ <pt>9/9</pt>
+ <tablerow>2</tablerow>
+ <text>Vigilance, First strike, Provoke (When this attacks, you may have target creature defending player controls untap and block it if able.)
+---
+(Front): Lyndia Ludwig</text>
+ <related>Lyndia Ludwig</related>
+</card>
+<card>
+ <name>Tadeusz, Chosen of Vecna</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tadeuszchosenofvecna.jpg">RPG</set>
+ <color>B</color>
+ <manacost></manacost>
+ <cmc>3</cmc>
+ <type>Legendary Planeswalker - Tadeusz </type>
+ <loyalty>4</loyalty>
+ <tablerow>1</tablerow>
+ <text>Other creatures you control get +2/+0
+[+2]: Creatures you control get double strike until the end of turn.
+[-2]: Target player sacrifice a creature
+[-6]: Put target creature card from a graveyard onto the battlefield under your control.
+---
+(Front): Tadeusz, The Seeking Prince</text>
+ <related>Tadeusz, The Seeking Prince</related>
+</card>
+<!--token: -->
+
+<card>
+ <name>TSpider</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tspider.jpg">RPG</set>
+ <color>B</color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Token Creature - Spider </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>Deathtouch, Reach</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TConstruct</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tconstruct.jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Construct </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TNinja</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tninja.jpg">RPG</set>
+ <color>B</color>
+ <type>Token Creature - Ninja </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TConstruct </name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tconstruct .jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Construct </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Gottag, The Stone's Smith (emblem)</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/Gottagthestonessmithemblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem - Gottag </type>
+ <tablerow>1</tablerow>
+ <text>Any Rock deals 4 damage instead of 2.
+You may tap a Rock, add one mana of any color to your mana-pool.</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TNight-Cartel Goons</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/nightcartelgoons.jpg">RPG</set>
+ <color>B</color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Token Creature - Human Samuraï Minion </type>
+ <pt>2/1</pt>
+ <tablerow>2</tablerow>
+ <text>Menace</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TGoblin Token</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tgoblintoken.jpg">RPG</set>
+ <color>R</color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Token Creature - Goblin</type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>Haste</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TCrocodile Token</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tcrocodiletoken.jpg">RPG</set>
+ <color>G</color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Token Creature - Crocodile</type>
+ <pt>3/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TConstruct   </name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tconstruct   .jpg">RPG</set>
+ <color></color>
+ <type>Token Creature - Construct </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Vann's Helmet</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/vannshelmet.jpg">RPG</set>
+ <color></color>
+ <type>Legendary Token Artifact - Equipment </type>
+ <tablerow>1</tablerow>
+ <text>Indestructible
+Equipped creature is indestructible.
+Equip 3</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Murkpoint Press</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/murkpointpress.jpg">RPG</set>
+ <color></color>
+ <type>Legendary Token Artifact</type>
+ <tablerow>1</tablerow>
+ <text>Hexproof
+ At each player upkeep, that player chooses a creature he control that hasn’t been noted for this artifact, note that creature name on the artifact.</text>
+ <token>1</token>
+</card>
+<card>
+ <name>The Kenda Emperor (Emblem)</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/thekendaemperoremblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem - The Emperor </type>
+ <tablerow>1</tablerow>
+ <text>Creatures you control get +2/+2 and have hexproof.</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TDwarf Warrior</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tdwarfwarrior.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Dwarf Warrior </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TKobold Warrior</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tkoboldwarrior.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Kobold Warrior </type>
+ <pt>0/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Treasure Token</name>
+ <text>{T}, Sacrifice this artifact: Add one mana of any color.</text>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/treasuretoken.jpg">RPG</set>
+ <color></color>
+ <type>Token artifact</type>
+ <pt></pt>
+ <tablerow>1</tablerow>
+ <token>1</token>
+</card>
+<card>
+ <name>TZombie Beast</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tzombiebeast.jpg">RPG</set>
+ <color>BG</color>
+ <type>Token Creature - Zombie Beast </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+
+
+<!-- Basic Lands -->
+
+<card>
+ <name>Forest</name>
+ <text>({T}: Add {G}.)</text>
+ <type>Basic Land — Forest</type>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/forest.jpg">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+<card>
+ <name>Island</name>
+ <text>({T}: Add {U}.)</text>
+ <type>Basic Land — Island</type>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/island.jpg">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+<card>
+ <name>Mountain</name>
+ <text>({T}: Add {R}.)</text>
+ <type>Basic Land — Mountain</type>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/mountain.jpg">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+<card>
+ <name>Plains</name>
+ <text>({T}: Add {W}.)</text>
+ <type>Basic Land — Plains</type>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/plains.jpg">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+<card>
+ <name>Swamp</name>
+ <text>({T}: Add {B}.)</text>
+ <type>Basic Land — Swamp</type>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/swamp.jpg">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+
+
+
+
+
+</cards>
+</cockatrice_carddatabase>
