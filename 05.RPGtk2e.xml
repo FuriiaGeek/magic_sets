@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<cockatrice_carddatabase version="3">
+<sets>
+<set>
+<name>RPG</name>
+<longname>RPG</longname>
+<settype>Custom</settype>
+</set>
+</sets>
+<cards>
+<card>
+ <name>The Mighty Claus</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/themightyclaus.jpg">RPG</set>
+ <color>W</color>
+ <manacost></manacost>
+ <cmc>5</cmc>
+ <type>Legendary Creature - Giant God </type>
+ <pt>10/10</pt>
+ <tablerow>2</tablerow>
+ <text>Hexproof, Vigilance, Protection from black, Annihilator 2
+Whenever The Mighty Claus exit the battlefield, return it instead transformed back to the battlefield with 2 loyalty counter.
+---
+(Front): Santa Claus</text>
+</card>
+<card>
+ <name>Strategic Fighting</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/strategicfighting.jpg">RPG</set>
+ <color></color>
+ <manacost>6R</manacost>
+ <cmc>0</cmc>
+ <type>Enchantment</type>
+ <tablerow>1</tablerow>
+ <text>Creature you control gain provoke and flanking. (When this attacks, you may have target creature defending player controls untap and block it if able. Whenever a creature without flanking blocks that creature, the blocking creature gets -1/-1 until end of turn.)
+---
+(Front): Temple of The Red Knight</text>
+</card>
+
+
+
+
+
+
+<card>
+ <name>Leukadeamon</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/leukadeamon.jpg">RPG</set>
+ <color>B</color>
+ <type>Token Legendary Creature</type>
+ <pt>5/5</pt>
+ <tablerow>2</tablerow>
+ <text>Flying</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Ice Elemental</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/iceelemental.jpg">RPG</set>
+ <color>U</color>
+ <type>Token Creature - Elemental </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>Whenever Ice Elemental deal combat damage to a creature, tap it.
+
+Whenever Ice Elemental deal damage to a player, that player can’t cast more than one spell until its next end step</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TPropaganda</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/tpropaganda.jpg">RPG</set>
+ <color></color>
+ <type>Emblem - Emperor </type>
+ <tablerow>1</tablerow>
+ <text>At the beginning of your upkeep, create a 1/1 red soldier creature token.
+Each time a player create a creature token, you may pay 2 and add this token on your side.</text>
+ <token>1</token>
+ <related count="1">Soldier Token    </related>
+</card>
+<card>
+ <name>Lutin</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/lutin.jpg">RPG</set>
+ <color>W</color>
+ <type>Token Creature - Gnome </type>
+ <pt></pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Toy</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/toy.jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Toy </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Reindeer</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/reindeer.jpg">RPG</set>
+ <color>G</color>
+ <type>Token Creature - Reindeer </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Tconstruct    </name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/tconstruct    .jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Construct </type>
+ <pt>3/1</pt>
+ <tablerow>2</tablerow>
+ <text>Reach</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Hobgoblin Soldier</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/hobgoblinsoldier.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Goblin Soldier </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Hobgoblin Warrior</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/hobgoblinwarrior.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Goblin Warrior </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>Flanking, Haste (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TSoldier Token</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/soldierwr.jpg">RPG</set>
+ <color>WR</color>
+ <type>Token Creature - Soldier </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Soldier Token    </name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/soldierr.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Soldier </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Coal Token</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/coaltoken.jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact</type>
+ <tablerow>1</tablerow>
+ <text>When Coal enters the battlefield, Coal deals 1 damage to its controller.
+1, sacrifice Coal: Coal deals 1 damage to target creature.</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Novossimo</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/novossimo.jpg">RPG</set>
+ <color>UB</color>
+ <type>Token Creature - Human Wizard </type>
+ <pt>2/3</pt>
+ <tablerow>2</tablerow>
+ <text>T: Regenerate target creature (The next time this creature would be destroyed this turn, it isn’t. Instead tap it, remove all damage from it, and remove it from combat.)</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TCitizen</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/tcitizen.jpg">RPG</set>
+ <color>W</color>
+ <type>Token Creature - Citizen </type>
+ <pt></pt>
+ <tablerow>2</tablerow>
+ <text>T: Add W to your mana pool</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TRogue</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/trogue.jpg">RPG</set>
+ <color>B</color>
+ <type>Token Creature - Rogue </type>
+ <pt>1/2</pt>
+ <tablerow>2</tablerow>
+ <text>Deathtouch</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TSoldierG</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/tsoldierg.jpg">RPG</set>
+ <color>W</color>
+ <type>Token Creature - Soldier </type>
+ <pt>3/5</pt>
+ <tablerow>2</tablerow>
+ <text>Defender, Reach</text>
+ <token>1</token>
+</card>
+<card>
+ <name>V, the Vision Mage Emblem</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/vthevisionmageemblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem</type>
+ <tablerow>1</tablerow>
+ <text>When an opponent cast a spell that targets you or a permanent you control, counter that spell unless that player pay 2</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Quetzal, The Raging Naga Emblem</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/quetzaltheragingnagaemblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem</type>
+ <tablerow>1</tablerow>
+ <text>Creature you controls get +3/+3</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Archibald Wintergrip Emblem</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/archibaldwintergripemblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem</type>
+ <tablerow>1</tablerow>
+ <text>If a permanent you control would deal damage to a permanent or player, it deals double that damage to that permanent or player instead</text>
+ <token>1</token>
+</card>
+</cards>
+</cockatrice_carddatabase>
