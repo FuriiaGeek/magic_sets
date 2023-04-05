@@ -837,7 +837,7 @@ whenever Iwan deals combat damage to a player, destroy target artifact that play
 </card>
 <card>
  <name>Iwan's Adamantine Sword</name>
- <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/Iwansadamantinesword.jpg">RPG</set>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/iwansadamantinesword.jpg">RPG</set>
  <color></color>
  <manacost>3</manacost>
  <cmc>3</cmc>
