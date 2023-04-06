@@ -3878,7 +3878,7 @@ UR, T: Create a 3/1 construct artifact creature token with reach.</text>
 </card>
 <card>
  <name>Novossimo, the Clone Wizard</name>
- <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/novossimotheclonewizard.jpg">RPG</set>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/novossimotheclonewizard.jpg">RPG</set>
  <color>UB</color>
  <manacost>2UB</manacost>
  <cmc>4</cmc>

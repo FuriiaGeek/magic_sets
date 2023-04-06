@@ -168,7 +168,7 @@ Each time a player create a creature token, you may pay 2 and add this token on 
  <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/novossimo.jpg">RPG</set>
  <color>UB</color>
  <type>Token Creature - Human Wizard </type>
- <pt>2/3</pt>
+ <pt>1/1</pt>
  <tablerow>2</tablerow>
  <text>T: Regenerate target creature (The next time this creature would be destroyed this turn, it isn’t. Instead tap it, remove all damage from it, and remove it from combat.)</text>
  <token>1</token>
