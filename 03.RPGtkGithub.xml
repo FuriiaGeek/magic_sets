@@ -136,7 +136,7 @@ BR,T: Create two 0/1 red Kobold Warrior creature token
 </card>
 <card>
  <name>Gottag, The Stone's Smith (emblem)</name>
- <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/Gottagthestonessmithemblem.jpg">RPG</set>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/gottagthestonessmithemblem.jpg">RPG</set>
  <color></color>
  <type>Emblem - Gottag </type>
  <tablerow>1</tablerow>
