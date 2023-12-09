@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cockatrice_carddatabase version="3">
+<sets>
+<set>
+<name>RPG</name>
+<longname>RPG</longname>
+<settype></settype>
+</set>
+</sets>
+<cards>
+
+<!--Second side: -->
+
+<card>
+ <name>Dragonna</name>
+ <set rarity="rare" picURL="http://techgame.servegame.com/mtgpic/Dragonna.jpg">RPG</set>
+ <color></color>
+ <related>Keltas's Rising</related>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Legendary Land</type>
+ <tablerow>0</tablerow>
+ <text>(Transforms from Keltas’s Rising.)
+T: Add one mana of any color.
+3BB, T: Put a creature card from a graveyard onto the battlefield under your control.  It becomes a Zombie in addition to its other types.
+---
+(Back): Keltas's Rising</text>
+</card>
+<card>
+ <name>Svala, the Frenzy Werewolf</name>
+ <set rarity="mythic" picURL="http://techgame.servegame.com/mtgpic/svalathefrenzywerewolf.jpg">RPG</set>
+ <color>RG</color>
+ <manacost></manacost>
+ <cmc>5</cmc>
+ <type>Legendary Creature - Werewolf </type>
+ <pt>6/6</pt>
+ <tablerow>2</tablerow>
+ <text>Haste, trample, indestructible
+
+Nightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)
+---
+(Front): Svala Koridottir, la Viking</text>
+ <related>Svala, the Frenzy Werewolf</related>
+</card>
+<card>
+ <name>StoneBridge Destroyed</name>
+ <set rarity="uncommon" picURL="http://techgame.servegame.com/mtgpic/stonebridgedestroyed.jpg">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land</type>
+ <tablerow>0</tablerow>
+ <text>StoneBridge Destroyed enter the battlefied tapped
+T: Add B or R
+BR,T: Create two 0/1 red Kobold Warrior creature token
+---
+(Front): StoneBridge</text>
+ <related>StoneBridge</related>
+ <related count="1">TKobold Warrior</related>
+  <cipt>1</cipt>
+</card>
+<card>
+ <name>Lyndia 20</name>
+ <set rarity="rare" picURL="http://techgame.servegame.com/mtgpic/lyndia20.jpg" >RPG</set>
+ <color>WG</color>
+ <manacost></manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Artificer Soldier </type>
+ <pt>9/9</pt>
+ <tablerow>2</tablerow>
+ <text>Vigilance, First strike, Provoke (When this attacks, you may have target creature defending player controls untap and block it if able.)
+---
+(Front): Lyndia Ludwig</text>
+ <related>Lyndia Ludwig</related>
+</card>
+<card>
+ <name>Tadeusz, Chosen of Vecna</name>
+ <set rarity="mythic" picURL="http://techgame.servegame.com/mtgpic/tadeuszchosenofvecna.jpg">RPG</set>
+ <color>B</color>
+ <manacost></manacost>
+ <cmc>3</cmc>
+ <type>Legendary Planeswalker - Tadeusz </type>
+ <loyalty>4</loyalty>
+ <tablerow>1</tablerow>
+ <text>Other creatures you control get +2/+0
+[+2]: Creatures you control get double strike until the end of turn.
+[-2]: Target player sacrifice a creature
+[-6]: Put target creature card from a graveyard onto the battlefield under your control.
+---
+(Front): Tadeusz, The Seeking Prince</text>
+ <related>Tadeusz, The Seeking Prince</related>
+</card>
+<!--token: -->
+
+<card>
+ <name>TSpider</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/tspider.jpg">RPG</set>
+ <color>B</color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Token Creature - Spider </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>Deathtouch, Reach</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TConstruct</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/tconstruct.jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Construct </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TNinja</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/tninja.jpg">RPG</set>
+ <color>B</color>
+ <type>Token Creature - Ninja </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TConstruct </name>
+ <set picURL="http://techgame.servegame.com/mtgpic/tconstruct .jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Construct </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Gottag, The Stone's Smith (emblem)</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/Gottagthestonessmithemblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem - Gottag </type>
+ <tablerow>1</tablerow>
+ <text>Any Rock deals 4 damage instead of 2.
+You may tap a Rock, add one mana of any color to your mana-pool.</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TNight-Cartel Goons</name>
+ <set rarity="common" picURL="http://techgame.servegame.com/mtgpic/nightcartelgoons.jpg">RPG</set>
+ <color>B</color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Token Creature - Human Samuraï Minion </type>
+ <pt>2/1</pt>
+ <tablerow>2</tablerow>
+ <text>Menace</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TGoblin Token</name>
+ <set rarity="common" picURL="http://techgame.servegame.com/mtgpic/tgoblintoken.jpg">RPG</set>
+ <color>R</color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Token Creature - Goblin</type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>Haste</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TCrocodile Token</name>
+ <set rarity="common" picURL="http://techgame.servegame.com/mtgpic/tcrocodiletoken.jpg">RPG</set>
+ <color>G</color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Token Creature - Crocodile</type>
+ <pt>3/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TConstruct   </name>
+ <set picURL="http://techgame.servegame.com/mtgpic/tconstruct   .jpg">RPG</set>
+ <color></color>
+ <type>Token Creature - Construct </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Vann's Helmet</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/vannshelmet.jpg">RPG</set>
+ <color></color>
+ <type>Legendary Token Artifact - Equipment </type>
+ <tablerow>1</tablerow>
+ <text>Indestructible
+Equipped creature is indestructible.
+Equip 3</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Murkpoint Press</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/murkpointpress.jpg">RPG</set>
+ <color></color>
+ <type>Legendary Token Artifact</type>
+ <tablerow>1</tablerow>
+ <text>Hexproof
+ At each player upkeep, that player chooses a creature he control that hasn’t been noted for this artifact, note that creature name on the artifact.</text>
+ <token>1</token>
+</card>
+<card>
+ <name>The Kenda Emperor (Emblem)</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/thekendaemperoremblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem - The Emperor </type>
+ <tablerow>1</tablerow>
+ <text>Creatures you control get +2/+2 and have hexproof.</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TDwarf Warrior</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/tdwarfwarrior.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Dwarf Warrior </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TKobold Warrior</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/tkoboldwarrior.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Kobold Warrior </type>
+ <pt>0/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Treasure Token</name>
+ <text>{T}, Sacrifice this artifact: Add one mana of any color.</text>
+ <set picURL="http://techgame.servegame.com/mtgpic/treasuretoken.jpg">RPG</set>
+ <color></color>
+ <type>Token artifact</type>
+ <pt></pt>
+ <tablerow>1</tablerow>
+ <token>1</token>
+</card>
+<card>
+ <name>TZombie Beast</name>
+ <set picURL="http://techgame.servegame.com/mtgpic/tzombiebeast.jpg">RPG</set>
+ <color>BG</color>
+ <type>Token Creature - Zombie Beast </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+
+
+<!-- Basic Lands -->
+
+<card>
+ <name>Forest</name>
+ <text>({T}: Add {G}.)</text>
+ <type>Basic Land — Forest</type>
+ <set rarity="common" picURL="http://techgame.servegame.com/mtgpic/forest">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+<card>
+ <name>Island</name>
+ <text>({T}: Add {U}.)</text>
+ <type>Basic Land — Island</type>
+ <set rarity="common" picURL="http://techgame.servegame.com/mtgpic/island">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+<card>
+ <name>Mountain</name>
+ <text>({T}: Add {R}.)</text>
+ <type>Basic Land — Mountain</type>
+ <set rarity="common" picURL="http://techgame.servegame.com/mtgpic/mountain">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+<card>
+ <name>Plains</name>
+ <text>({T}: Add {W}.)</text>
+ <type>Basic Land — Plains</type>
+ <set rarity="common" picURL="http://techgame.servegame.com/mtgpic/plains">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+<card>
+ <name>Swamp</name>
+ <text>({T}: Add {B}.)</text>
+ <type>Basic Land — Swamp</type>
+ <set rarity="common" picURL="http://techgame.servegame.com/mtgpic/swamp">RPG</set>
+ <tablerow>0</tablerow>
+</card>
+<card>
+ <name>The Mighty Claus</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/themightyclaus.jpg">RPG</set>
+ <color>W</color>
+ <manacost></manacost>
+ <cmc>5</cmc>
+ <type>Legendary Creature - Giant God </type>
+ <pt>10/10</pt>
+ <tablerow>2</tablerow>
+ <text>Hexproof, Vigilance, Protection from black, Annihilator 2
+Whenever The Mighty Claus exit the battlefield, return it instead transformed back to the battlefield with 2 loyalty counter.
+---
+(Front): Santa Claus</text>
+</card>
+<card>
+ <name>Strategic Fighting</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/strategicfighting.jpg">RPG</set>
+ <color></color>
+ <manacost>6R</manacost>
+ <cmc>0</cmc>
+ <type>Enchantment</type>
+ <tablerow>1</tablerow>
+ <text>Creature you control gain provoke and flanking. (When this attacks, you may have target creature defending player controls untap and block it if able. Whenever a creature without flanking blocks that creature, the blocking creature gets -1/-1 until end of turn.)
+---
+(Front): Temple of The Red Knight</text>
+</card>
+
+
+
+
+
+
+<card>
+ <name>Leukadeamon</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/leukadeamon.jpg">RPG</set>
+ <color>B</color>
+ <type>Token Legendary Creature</type>
+ <pt>5/5</pt>
+ <tablerow>2</tablerow>
+ <text>Flying</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Ice Elemental</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/iceelemental.jpg">RPG</set>
+ <color>U</color>
+ <type>Token Creature - Elemental </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>Whenever Ice Elemental deal combat damage to a creature, tap it.
+
+Whenever Ice Elemental deal damage to a player, that player can’t cast more than one spell until its next end step</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TPropaganda</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/tpropaganda.jpg">RPG</set>
+ <color></color>
+ <type>Emblem - Emperor </type>
+ <tablerow>1</tablerow>
+ <text>At the beginning of your upkeep, create a 1/1 red soldier creature token.
+Each time a player create a creature token, you may pay 2 and add this token on your side.</text>
+ <token>1</token>
+ <related count="1">Soldier Token    </related>
+</card>
+<card>
+ <name>Lutin</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/lutin.jpg">RPG</set>
+ <color>W</color>
+ <type>Token Creature - Gnome </type>
+ <pt></pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Toy</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/toy.jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Toy </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Reindeer</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/reindeer.jpg">RPG</set>
+ <color>G</color>
+ <type>Token Creature - Reindeer </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Tconstruct    </name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/tconstruct    .jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact Creature - Construct </type>
+ <pt>3/1</pt>
+ <tablerow>2</tablerow>
+ <text>Reach</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Hobgoblin Soldier</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/hobgoblinsoldier.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Goblin Soldier </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Hobgoblin Warrior</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/hobgoblinwarrior.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Goblin Warrior </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>Flanking, Haste (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TSoldier Token</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/soldierwr.jpg">RPG</set>
+ <color>WR</color>
+ <type>Token Creature - Soldier </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Soldier Token    </name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/soldierr.jpg">RPG</set>
+ <color>R</color>
+ <type>Token Creature - Soldier </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>Coal Token</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/coaltoken.jpg">RPG</set>
+ <color></color>
+ <type>Token Artifact</type>
+ <tablerow>1</tablerow>
+ <text>When Coal enters the battlefield, Coal deals 1 damage to its controller.
+1, sacrifice Coal: Coal deals 1 damage to target creature.</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Novossimo</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/novossimo.jpg">RPG</set>
+ <color>UB</color>
+ <type>Token Creature - Human Wizard </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>T: Regenerate target creature (The next time this creature would be destroyed this turn, it isn’t. Instead tap it, remove all damage from it, and remove it from combat.)</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TCitizen</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/tcitizen.jpg">RPG</set>
+ <color>W</color>
+ <type>Token Creature - Citizen </type>
+ <pt></pt>
+ <tablerow>2</tablerow>
+ <text>T: Add W to your mana pool</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TRogue</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/trogue.jpg">RPG</set>
+ <color>B</color>
+ <type>Token Creature - Rogue </type>
+ <pt>1/2</pt>
+ <tablerow>2</tablerow>
+ <text>Deathtouch</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TSoldierG</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/tsoldierg.jpg">RPG</set>
+ <color>W</color>
+ <type>Token Creature - Soldier </type>
+ <pt>3/5</pt>
+ <tablerow>2</tablerow>
+ <text>Defender, Reach</text>
+ <token>1</token>
+</card>
+<card>
+ <name>V, the Vision Mage Emblem</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/vthevisionmageemblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem</type>
+ <tablerow>1</tablerow>
+ <text>When an opponent cast a spell that targets you or a permanent you control, counter that spell unless that player pay 2</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Quetzal, The Raging Naga Emblem</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/quetzaltheragingnagaemblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem</type>
+ <tablerow>1</tablerow>
+ <text>Creature you controls get +3/+3</text>
+ <token>1</token>
+</card>
+<card>
+ <name>Archibald Wintergrip Emblem</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/archibaldwintergripemblem.jpg">RPG</set>
+ <color></color>
+ <type>Emblem</type>
+ <tablerow>1</tablerow>
+ <text>If a permanent you control would deal damage to a permanent or player, it deals double that damage to that permanent or player instead</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TDistrict Token</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/tdistrict.jpg">RPG</set>
+ <color></color>
+ <type>Artifact</type>
+ <tablerow>1</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TWall Token</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/twall.jpg">RPG</set>
+ <color>U</color>
+ <type>Creature - Wall </type>
+ <pt>0/8</pt>
+ <tablerow>2</tablerow>
+ <text>Defender</text>
+ <token>1</token>
+</card>
+<card>
+ <name>TGolem Token</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/tgolem.jpg">RPG</set>
+ <color></color>
+ <type>Artifact Creature - Golem </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TConstruct Token    </name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/tconstruct.jpg">RPG</set>
+ <color></color>
+ <type>Artifact Creature - Construct </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TWizard Token</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/twizard.jpg">RPG</set>
+ <color>U</color>
+ <type>Creature - Wizard </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TDemon Token</name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/tdemon.jpg">RPG</set>
+ <color>B</color>
+ <type>Creature - Demon </type>
+ <pt>7/7</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+<card>
+ <name>TRogue Token </name>
+ <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/trogue.jpg">RPG</set>
+ <color>B</color>
+ <type>Creature - Rogue </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text></text>
+ <token>1</token>
+</card>
+
+
+
+</cards>
+</cockatrice_carddatabase>
