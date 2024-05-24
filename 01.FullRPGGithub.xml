@@ -5990,7 +5990,7 @@ Food token have “T, Sacrifice this artifact: Add 1 to your mana pool”</text>
 </card>
 <card>
  <name>Charge en Caleçon</name>
- <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/chargeenCalecon.jpg">RPG</set>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/chargeencalecon.jpg">RPG</set>
  <color>R</color>
  <manacost>2R</manacost>
  <cmc>3</cmc>
