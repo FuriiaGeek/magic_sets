@@ -369,7 +369,7 @@ Each time a player create a creature token, you may pay 2 and add this token on 
  <set picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/lutin.jpg">RPG</set>
  <color>W</color>
  <type>Token Creature - Gnome </type>
- <pt></pt>
+ <pt>1/1</pt>
  <tablerow>2</tablerow>
  <text></text>
  <token>1</token>
