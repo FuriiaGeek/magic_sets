@@ -325,7 +325,20 @@ Whenever The Mighty Claus exit the battlefield, return it instead transformed ba
 ---
 (Front): Temple of The Red Knight</text>
 </card>
-
+<card>
+ <name>Mr BlackBerry</name>
+ <set rarity="uncommon"  picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/mrblackberry.png">RPG</set>
+ <color>U</color>
+ <manacost></manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Human Fish </type>
+ <pt>4/4</pt>
+ <tablerow>2</tablerow>
+ <text>Islandwalk (This creature can’t be blocked as long as defending player controls an Island.)
+Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)
+---
+(Front): Lab Orca</text>
+</card>
 
 
 

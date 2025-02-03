@@ -775,6 +775,7 @@ At the beginning of each player’s end step, if three or more creatures died th
 ---
 (Front): Dragonna</text>
  <related count="1">Zombie Token</related>
+  <related attach="attach">Dragonna</related>
 </card>
 <card>
  <name>Sir Six's Lightsaber</name>
@@ -6604,7 +6605,965 @@ Whenever Tauzack deals damage to creature, that creature can’t be regenerated 
  <text>If a creature you control with 5 or more power died this turn, you may pay 0 rather than pay Narcissitic Rage mana cost
 Destroy target creature, then if that creature died, exile it instead</text>
 </card>
+<card>
+ <name>Ruby</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/ruby.png">RPG</set>
+ <color>R</color>
+ <manacost>3RR</manacost>
+ <cmc>5</cmc>
+ <type>Legendary Creature - Human Shaman </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Prowess
+If a source you control would deal damage to a permanent or a player, it deals that much damage plus 2
+T: Ruby deals 1 damage to target creature or planeswalker</text>
+</card>
+<card>
+ <name>Tjinsou</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/tjinsou.png">RPG</set>
+ <color>B</color>
+ <manacost>2BB</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Rogue </type>
+ <pt>3/2</pt>
+ <tablerow>2</tablerow>
+ <text>First strike
+As long as it’s not your turn Tjinsou has shadow (This creature can block or be blocked by only creatures with shadow.)
+B: Tjinsou gains shadow until the end of turn.</text>
+</card>
+<card>
+ <name>Grantufrax</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/grantufrax.png">RPG</set>
+ <color>G</color>
+ <manacost>4G</manacost>
+ <cmc>5</cmc>
+ <type>Legendary Creature - Dragon Warrior </type>
+ <pt>4/4</pt>
+ <tablerow>2</tablerow>
+ <text>Trample
+Whenever Grantufrax attack, put Two +1/+1 counter on target creature, that creature gains trample until the end of turn.
+As long as Grantufrax as 10 power or more, Grantufrax is indestructible</text>
+</card>
+<card>
+ <name>Sarkanys</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/sarkanys.png">RPG</set>
+ <color>W</color>
+ <manacost>2WW</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Wizard </type>
+ <pt>2/3</pt>
+ <tablerow>2</tablerow>
+ <text>Flash, Flying
+When Sarkanys enters the battlefield, exile up to one other target permanent until Sarkanys leaves the battlefield.
+1W: Target creature you control gains protection of the color of your choice until the end of turn</text>
+</card>
+<card>
+ <name>Andzrej</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/andzrej.png">RPG</set>
+ <color>U</color>
+ <manacost>3U</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Wizard </type>
+ <pt>2/3</pt>
+ <tablerow>2</tablerow>
+ <text>Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)
+at the beginning of your upkeep, up to one target artifact you control become a 3/3 creature until the end of turn, it’s still an artifact.
+Whenever you cast your first noncreature spell, draw a card.</text>
+</card>
+<card>
+ <name>Ur-Snow</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/ursnow.png">RPG</set>
+ <color>U</color>
+ <manacost>1UUU</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Snow Creature - Elf Wizard </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>whenever you casts your first instant or sorcery spell each turn, you may return that spell to its owners hand. if you do, create a copy of that spell</text>
+</card>
+<card>
+ <name>White Castle</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/whitecastle.png">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land</type>
+ <tablerow>0</tablerow>
+ <text>T: Add W
+T: Add CC. Spend this mana only to activate an ability or cast an artifact spell.</text>
+</card>
+<card>
+ <name>Skeleton Angel King</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/skeletonangelking.png">RPG</set>
+ <color>B</color>
+ <manacost>4B</manacost>
+ <cmc>5</cmc>
+ <type>Creature - Skeleton Pirate </type>
+ <pt>5/4</pt>
+ <tablerow>2</tablerow>
+ <text>When Angel King enters the battlefield put a shield counter on it
+Whenever a Skeleton or zombie creature enters the battlefield under your control, put a shield counter on Angel King, this ability trigger once per turn.</text>
+</card>
+<card>
+ <name>Eladrin Soldier</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/eladrinsoldier.png">RPG</set>
+ <color>G</color>
+ <manacost>1G</manacost>
+ <cmc>2</cmc>
+ <type>Creature - Elf Warrior </type>
+ <pt>2/1</pt>
+ <tablerow>2</tablerow>
+ <text>Ward 1 (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays 1.)
+T: Add G to your mana pool.</text>
+</card>
+<card>
+ <name>Pirate Skeleton</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/pirateskeleton.png">RPG</set>
+ <color>B</color>
+ <manacost>1B</manacost>
+ <cmc>2</cmc>
+ <type>Creature - Skeleton Pirate </type>
+ <pt>2/1</pt>
+ <tablerow>2</tablerow>
+ <text>When pirate Skeleton dies, target player lose 1 life and you Scry 1.
+B, Exile a card from your graveyard: Return Pirate Skeleton from the graveyard to the battlefield tapped</text>
+</card>
+<card>
+ <name>Menead</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/menead.png">RPG</set>
+ <color>RG</color>
+ <manacost>RG</manacost>
+ <cmc>2</cmc>
+ <type>Creature - Faerie Horror </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Haste, Hexproof
+Whenever Menead attack, up to one target creature can’t block this turn</text>
+</card>
+<card>
+ <name>Emperor town</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/emperortown.png">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land</type>
+ <tablerow>0</tablerow>
+ <text>T: Add C
+2, T, Sacrifice Emperor Town: Destroy target nonbasic land an opponent controls, That land’s controller may search their library for a basic land card, put it onto the battlefield, then shuffle. You may search your library for a basic land card, put it onto the battlefield, then shuffle.</text>
+</card>
+<card>
+ <name>White Metal Golem</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/whitemetalgolem.png">RPG</set>
+ <color></color>
+ <manacost>5</manacost>
+ <cmc>5</cmc>
+ <type>Artifact Creature - Golem </type>
+ <pt>5/5</pt>
+ <tablerow>2</tablerow>
+ <text>Shroud</text>
+</card>
+<card>
+ <name>Drop L'oeuf Grantufrax</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/droploeufgrantufrax.png">RPG</set>
+ <color>G</color>
+ <manacost>1G</manacost>
+ <cmc>2</cmc>
+ <type>Sorcery</type>
+ <tablerow>3</tablerow>
+ <text>Create a 0/1 egg token creature with defender, then target creature you control deals damage equal to its power to target creature.</text>
+  <related count="1">Egg Token</related>
+</card>
+<card>
+ <name>Bungee Kill</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/bungeekill.png">RPG</set>
+ <color>W</color>
+ <manacost>2W</manacost>
+ <cmc>3</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Destroy target attacking or defending creature, then put a flying counter on a target creature you control</text>
+</card>
+<card>
+ <name>Keep Object Mode</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/keepobjectmode.png">RPG</set>
+ <color>W</color>
+ <manacost>1W</manacost>
+ <cmc>2</cmc>
+ <type>Enchantment - Aura </type>
+ <tablerow>1</tablerow>
+ <text>Enchant creature you control
+When Keep Object Mode enters the battlefield, exile target creature or artifact an opponents controls until Keep Object Mode leaves the battlefield</text>
+</card>
+<card>
+ <name>C'est Fascinant</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/cestfascinant.png">RPG</set>
+ <color>U</color>
+ <manacost>U</manacost>
+ <cmc>1</cmc>
+ <type>Sorcery</type>
+ <tablerow>3</tablerow>
+ <text>Draw a card
+Scry 2 (To scry 2, look at the top two cards of your library, then put any number of them on the bottom of your library and the rest on top in any order.)</text>
+</card>
+<card>
+ <name>L'art de Dragger</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/lartdedragger.png">RPG</set>
+ <color>W</color>
+ <manacost>1W</manacost>
+ <cmc>2</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Tap a target creature you don’t control.
+Draw a card</text>
+</card>
+<card>
+ <name>Gug</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/gug.png">RPG</set>
+ <color>G</color>
+ <manacost>3G</manacost>
+ <cmc>4</cmc>
+ <type>Creature - Beast </type>
+ <pt>4/4</pt>
+ <tablerow>2</tablerow>
+ <text>Trample, Reach
+Gug can block an additional four creature each combat</text>
+</card>
+<card>
+ <name>La Ceinture du Fallen Nutritionist</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/laceinturedufallennutritionist.png">RPG</set>
+ <color></color>
+ <manacost>2</manacost>
+ <cmc>2</cmc>
+ <type>Artifact - Equipment </type>
+ <tablerow>1</tablerow>
+ <text>Equipped creature gain +1/+1, ward 1 and “whenever this creature attack, create a food token”.
+Equip 1</text>
+ <related count="1">Food Token</related>
+</card>
+<card>
+ <name>Sir Culez, LLARIENAVOIR</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/sirculezllarienavoir.png">RPG</set>
+ <color>B</color>
+ <manacost>1B</manacost>
+ <cmc>2</cmc>
+ <type>Creature - Cat Rogue </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>When Sir Culez, LLARIENAVOIR enter the battlefield, target opponents reveal his or her hand. You choose a noncreature, nonland card from it. the player discards that card</text>
+</card>
+<card>
+ <name>Lead Golem </name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/leadgolem.png">RPG</set>
+ <color></color>
+ <manacost>4</manacost>
+ <cmc>4</cmc>
+ <type>Artifact Creature - Golem </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Deathtouch, Shroud
+When Lead Golem blocks, target creature you control gains shroud until the end of turn</text>
+</card>
+<card>
+ <name>Mage apprentice</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/mageapprentice.png">RPG</set>
+ <color>U</color>
+ <manacost>1U</manacost>
+ <cmc>2</cmc>
+ <type>Creature - Elf Wizard </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>When Mage Apprentice enters the battlefield, draw a card of each wizard you control.</text>
+</card>
+<card>
+ <name>Elizabeth, Andzrej's Assitant</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/elizabethandzrejsassitant.png">RPG</set>
+ <color>UR</color>
+ <manacost>1UR</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Human Wizard </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)
+T: Elizabeth deals damage equal to its power to target creature, then if that creature dies this turn, draw a card</text>
+</card>
+<card>
+ <name>Evalum, The Dragon's Assassin</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/evalumthedragonsassassin.png">RPG</set>
+ <color>B</color>
+ <manacost>2B</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Human Assassin </type>
+ <pt>2/3</pt>
+ <tablerow>2</tablerow>
+ <text>Deathtouch
+Other Assassin have +1/+1
+When a creature an opponents control dies, that player lose 1 life and you gain 1 life</text>
+</card>
+<card>
+ <name>Black Assassin</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/blackassassin.png">RPG</set>
+ <color>B</color>
+ <manacost>1B</manacost>
+ <cmc>2</cmc>
+ <type>Creature - Human Assassin </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>Deathtouch
+When Black Assassin enters the battlefield, destroy target creature that have been dealt damage this turn.</text>
+</card>
+<card>
+ <name>Mistrala, Lady of the hunt</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/mistralaladyofthehunt.png">RPG</set>
+ <color>G</color>
+ <manacost>3GGG</manacost>
+ <cmc>6</cmc>
+ <type>Legendary Creature - Faerie God </type>
+ <pt>5/5</pt>
+ <tablerow>2</tablerow>
+ <text>Hexproof, Trample
+At the beginning of  your combat step, up do two target nongreen creature can’t block this turn.
+If a green creature you controls deals combat damage to a player, draw a card.</text>
+</card>
+<card>
+ <name>Racka, the Forced Magister</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/rackatheforcedmagister.png">RPG</set>
+ <color>UBR</color>
+ <manacost>UBR</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Cat Wizard </type>
+ <pt>2/4</pt>
+ <tablerow>2</tablerow>
+ <text>At the beginning of your end step, each player exiles the top card of their library. Until your next end step, each player may play the card they exiled this way.
+Whenever a player plays a land from exile or casts a spell from exile, that player lose 1 life and you create a Clue token.</text>
+ <related count="1">Clue Token</related>
+</card>
+<card>
+ <name>The Elder Tree</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/theeldertree.png">RPG</set>
+ <color>G</color>
+ <manacost>4G</manacost>
+ <cmc>5</cmc>
+ <type>Legendary Creature - Treefolk Shaman </type>
+ <pt>2/7</pt>
+ <tablerow>2</tablerow>
+ <text>Trample, ward 2
+Plant you control have +1/+1 and
+ward 2
+When the Elder Tree blocks, you create two 0/1 plant creature token</text>
+ <related count="1">Plant Token</related>
+</card>
+<card>
+ <name>Lightning Stag</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/lightningstag.png">RPG</set>
+ <color>RG</color>
+ <manacost>4RG</manacost>
+ <cmc>6</cmc>
+ <type>Creature - Beast </type>
+ <pt>4/4</pt>
+ <tablerow>2</tablerow>
+ <text>Trample
+When Lightning Stag Attack, it deals damage equal to its power to up to one target creature.
+Whenever Lightning Stag is blocked it’s deals 1 damage to any creature blocking it</text>
+</card>
+<card>
+ <name>Planar Cameo</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/planarcameo.png">RPG</set>
+ <color>R</color>
+ <manacost>2RR</manacost>
+ <cmc>4</cmc>
+ <type>Sorcery</type>
+ <tablerow>3</tablerow>
+ <text>Search in target player library for a creature card, Reveal it and put it on the battlefield under your control, then shuffle. It gains haste until the end of turn. Exile it at the beginning of the next end step.</text>
+</card>
+<card>
+ <name>Hypnose Chevaleresque</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/hypnosechevaleresque.png">RPG</set>
+ <color>RG</color>
+ <manacost>RG</manacost>
+ <cmc>2</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>As an additional cost, tap an untaped creature you control
+Choose one — 
+• Cassonade — Hypnose Chevaleresque deals 4 damage to any target.
+• Fudge — Return target card from your graveyard to your hand</text>
+</card>
+<card>
+ <name>Fabricate</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/fabricate.png">RPG</set>
+ <color>U</color>
+ <manacost>2U</manacost>
+ <cmc>3</cmc>
+ <type>Sorcery</type>
+ <tablerow>3</tablerow>
+ <text>Search your library for an artifact card, reveal it, put in into your hand, then shuffle.</text>
+</card>
+<card>
+ <name>Aegis-1</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/aegis1.png">RPG</set>
+ <color>WUB</color>
+ <manacost>3WUB</manacost>
+ <cmc>6</cmc>
+ <type>Legendary Enchantment Creature - Avatar Construct </type>
+ <pt>4/8</pt>
+ <tablerow>2</tablerow>
+ <text>Impending 5 — WUB (If you cast this spell for its impending cost, it enters with five time counters and isn’t a creature until the last is removed. At the beginning of your end step, remove a time counter from it.)
+Whenever Aegis-1 enters or attacks, create a copy of target creature, except it’s no longer legendary and it’s a 3/3 artifact creature in addition to it’s type.</text>
+</card>
+<card>
+ <name>Deflect</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/deflect.png">RPG</set>
+ <color>R</color>
+ <manacost>R</manacost>
+ <cmc>1</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Change the target of target spell or ability with a single target that targets a creature you control</text>
+</card>
+<card>
+ <name>Sleeping on the Job</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/sleepingonthejob.png">RPG</set>
+ <color>W</color>
+ <manacost>W</manacost>
+ <cmc>1</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Your opponents can’t cast spells this turn ( Spells cast before this resolves are unaffected.)</text>
+</card>
+<card>
+ <name>Ernest's Truck</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/erneststruck.png">RPG</set>
+ <color></color>
+ <manacost>4</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Artifact - Vehicle </type>
+ <tablerow>1</tablerow>
+ <text>Can’t be countered
+Shroud
+Crew 2 (Tap any number of creatures you control with total power 2 or greater: This Vehicle becomes an artifact creature until end of turn.)</text>
+</card>
+<card>
+ <name>Beaten by a Car</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/beatenbyacar.png">RPG</set>
+ <color>U</color>
+ <manacost>U</manacost>
+ <cmc>1</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Counter target noncreature spell unless its controller pays 2</text>
+</card>
+<card>
+ <name>Alfredo's Distraction</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/alfredosdistraction.png">RPG</set>
+ <color>W</color>
+ <manacost>1W</manacost>
+ <cmc>2</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Kicker—Sacrifice an artifact (You may sacrifice an artifact in addition to any other costs as you cast this spell.)
+Tap target creature, if this spell was Kicked, tap all creature target player controls instead.</text>
+</card>
+<card>
+ <name>NineLive's Ambush</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/ninelivesambush.png">RPG</set>
+ <color>B</color>
+ <manacost>2B</manacost>
+ <cmc>3</cmc>
+ <type>Sorcery</type>
+ <tablerow>3</tablerow>
+ <text>Target player sacrifice two creatures he controls</text>
+</card>
+<card>
+ <name>Missing the station</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/missingthestation.png">RPG</set>
+ <color>R</color>
+ <manacost>1R</manacost>
+ <cmc>2</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Deal 2 damage to target creature or planeswalker, if that creatures or planeswalker dies this turn, exile it instead.</text>
+</card>
+<card>
+ <name>Dropped to Nowhere</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/droppedtonowhere.png">RPG</set>
+ <color>G</color>
+ <manacost>3GG</manacost>
+ <cmc>5</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Exile the top ten card of your library, you may reveal a creature card from among them then put it onto the battlefield. Put the rest of the exiled cards on the bottom of your library in any order.</text>
+</card>
+<card>
+ <name>Shimaru</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/shimaru.png">RPG</set>
+ <color>RG</color>
+ <manacost>2RG</manacost>
+ <cmc>4</cmc>
+ <type>Creature - Beast </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Haste, Trample
+When Shimaru enters the battlefield, it fights up to one target creature an opponent controls</text>
+</card>
+<card>
+ <name>Démétrios, the royal guard</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/demetriostheroyalguard.png">RPG</set>
+ <color>G</color>
+ <manacost>2G</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Frog Knight </type>
+ <pt>2/1</pt>
+ <tablerow>2</tablerow>
+ <text>Deathtouch, Reach
+When Démétrios enters the battlefield, create a 3/1 green dog creature token with vigilance</text>
+<related count="1">Dog Token </related>
+</card>
+<card>
+ <name>Duncan</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/duncan.png">RPG</set>
+ <color>WB</color>
+ <manacost>2WB</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Knight </type>
+ <pt>3/2</pt>
+ <tablerow>2</tablerow>
+ <text>First strike
+Whenever Duncan attacks, each opponents lose 1 life, you gain 1 life.</text>
+</card>
+<card>
+ <name>Grimazh, the General</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/grimazhthegeneral.png">RPG</set>
+ <color>BR</color>
+ <manacost>2BR</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Goblin Warrior </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Double strike
+When Grimazh attack, you may search your Library for a card named Magroth, the Great Pion, put it in your hand, then shuffle your library.
+1R: Grimazth gets +1/+0 until the end of turn.</text>
+</card>
+<card>
+ <name>Evana, the Sorceress</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/evanathesorceress.png">RPG</set>
+ <color>B</color>
+ <manacost>1BB</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Demon Cleric </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>Lifelink
+Whenever Evana, the Sorceress enters the battlefield, creatures your opponents control get -1/-1 until the end of turn
+B, T: Draw a card, Lose 1 life.</text>
+</card>
+<card>
+ <name>Magrot, the Great Pion</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/magrotthegreatpion.png">RPG</set>
+ <color>RG</color>
+ <manacost>RR/G</manacost>
+ <cmc>2</cmc>
+ <type>Legendary Creature - Goblin Warrior </type>
+ <pt>2/1</pt>
+ <tablerow>2</tablerow>
+ <text>Haste
+When Magrot attack, it deals 1 damage to target player.
+4R/GR/G: Monstrosity 4 (If this creature isn’t monstrous, put four +1/+1 counters on it and it becomes monstrous.)
+As Long as Magrot is Monstrous, it has trample</text>
+</card>
+<card>
+ <name>Isabella, Luna de la Vega</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/isabellalunadelavega.png">RPG</set>
+ <color>WU</color>
+ <manacost>1WU</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Elf Bard </type>
+ <pt>2/3</pt>
+ <tablerow>2</tablerow>
+ <text>2U, T: Return target creature to its owners hand.
+1W, T: Exile a card from a graveyard, you gain 2 life.</text>
+</card>
+<card>
+ <name>Karsu, Barbe Encré</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/karsubarbeencre.png">RPG</set>
+ <color>WG</color>
+ <manacost>1GW</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Dwarf Wizard </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>When Karsu enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it’s a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)
+Whenever a creature you controls deals combat damage to a player, create a map token.</text>
+<related count="1">Map Token</related>
+</card>
+<card>
+ <name>Sylvester Matios</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/sylvestermatios.png">RPG</set>
+ <color>R</color>
+ <manacost>4RR</manacost>
+ <cmc>6</cmc>
+ <type>Legendary Creature - Human Warrior </type>
+ <pt>5/5</pt>
+ <tablerow>2</tablerow>
+ <text>Trample
+Whenever Sylvester Matios Attack it deals damage equal to its power to up to one creature an opponents controls</text>
+</card>
+<card>
+ <name>Keneth Matios</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/kenethmatios.png">RPG</set>
+ <color>W</color>
+ <manacost>2WW</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Soldier </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Vigilance, Ward 2 (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays 2.)
+Domain — Creature you controls have +1/+1 for each basic land type among lands you control.</text>
+</card>
+<card>
+ <name>Sir Wilfrid Donovan</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/sirwilfriddonovan.png">RPG</set>
+ <color>UB</color>
+ <manacost>1UB</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Dragon Wizard </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>Whenever a creature die draw a card.
 
-
+2BB: Each player sacrifice a creature they controls.</text>
+</card>
+<card>
+ <name>Gnoll Archer</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/gnollarcher.png">RPG</set>
+ <color>G</color>
+ <manacost>1G</manacost>
+ <cmc>2</cmc>
+ <type>Creature - Dog Warrior </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>Reach
+When Gnoll Archer enters the battlefield, destroy up to one target creature with flying.</text>
+</card>
+<card>
+ <name>Vedran Karrak</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/vedrankarrak.png">RPG</set>
+ <color>G</color>
+ <manacost>1G</manacost>
+ <cmc>2</cmc>
+ <type>Legendary Creature - Human Druid </type>
+ <pt>1/1</pt>
+ <tablerow>2</tablerow>
+ <text>When Vedran Karrak enters the battlefield, it explores. (Reveal the top card of your library. Put that card into your hand if it’s a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)
+When Vedran Karrak dies, Search your library for a basic land, put it on the battlefield tapped, then shuffle your library</text>
+</card>
+<card>
+ <name>Death Island</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/deathisland.png">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land - Island Swamp </type>
+ <tablerow>0</tablerow>
+ <text>Death Island enters the battlefield tapped  unless you control an Rogue or a Wizard creature
+T: Add U or B to your mana pool</text>
+ <cipt>1</cipt>
+</card>
+<card>
+ <name>Brandon, The Antagonist</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/brandontheantagonist.png">RPG</set>
+ <color>B</color>
+ <manacost>2BB</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Wizard </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>When Brandon enters the battlefield, search your library for card, put it into your hand, then shuffle.
+2B: Return Brandon from your graveyard to the top of your library</text>
+</card>
+<card>
+ <name>Aldrim, Forge de Fer</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/aldrimforgedefer.png">RPG</set>
+ <color>WR</color>
+ <manacost>1RW</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Dwarf Cleric </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Battalion — When Aldrim and at least two other creature attack, Aldrim deals 3 damage to any target and you gain 3 life</text>
+</card>
+<card>
+ <name>Amelia Diane</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/ameliadiane.png">RPG</set>
+ <color>G</color>
+ <manacost>1GG</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Human Shaman </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>Other green creature you control have +1/+1 and trample.
+Whenever you cast a green creature, Draw a card</text>
+</card>
+<card>
+ <name>The Grey Legion</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/thegreylegion.png">RPG</set>
+ <color>W</color>
+ <manacost>2W</manacost>
+ <cmc>3</cmc>
+ <type>Creature - Human Soldier </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Vigilance
+The Grey Legion can block an addition creature.</text>
+</card>
+<card>
+ <name>EverSummer's Scouts</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/eversummersscouts.png">RPG</set>
+ <color>G</color>
+ <manacost>1G</manacost>
+ <cmc>2</cmc>
+ <type>Creature - Dwarf Scout </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>When EverSummer’s Scout Attack, it explores (Reveal the top card of your library. Put that card into your hand if it’s a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)</text>
+</card>
+<card>
+ <name>Tropicana, Succub Quebecoise</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/tropicanasuccubquebecoise.png">RPG</set>
+ <color>B</color>
+ <manacost>3BB</manacost>
+ <cmc>5</cmc>
+ <type>Legendary Creature - Demon </type>
+ <pt>4/4</pt>
+ <tablerow>2</tablerow>
+ <text>Flying, Lifelink.
+Disguise 1BB (You may cast this face down for 3 as a 2/2 creature with ward 2. Turn it face up any time for its disguise cost.)
+When Tropicana is turned face up, each opponents sacrifice a creature they control.</text>
+</card>
+<card>
+ <name>Warren Jericho</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/warrenjericho.png">RPG</set>
+ <color>UR</color>
+ <manacost>1UR</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Human Warrior </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Warren does not untap during the untap phase.
+As long as Warren is tapped it has shroud.
+R: Untap Warren, it gets +2/+2 until the end of turn.</text>
+</card>
+<card>
+ <name>Hel, the Bad Fork</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/helthebadfork.png">RPG</set>
+ <color>BR</color>
+ <manacost>2BR</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Pirate </type>
+ <pt>3/3</pt>
+ <tablerow>2</tablerow>
+ <text>Deathtouch, Haste
+When Hel deals damage to an opponents create a treasure token
+Sacrifice three treasure token: Search your library for an equipment card, put it on the battlefield attached to Hel, then shuffle your library.</text>
+<related count="1">Treasure Token</related>
+</card>
+<card>
+ <name>Jake, Trained Assassin</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/jaketrainedassassin.png">RPG</set>
+ <color>UB</color>
+ <manacost>1UB</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Artifact Creature - Construct Assassin </type>
+ <pt>2/4</pt>
+ <tablerow>2</tablerow>
+ <text>Flash
+Deathtouch
+When Jake enters the battlefield, destroy target no-artifact creature.</text>
+</card>
+<card>
+ <name>Dimitri, the Chauffeur</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/dimitrithechauffeur.png">RPG</set>
+ <color>W</color>
+ <manacost>1WW</manacost>
+ <cmc>3</cmc>
+ <type>Legendary Creature - Human Pilot </type>
+ <pt>2/3</pt>
+ <tablerow>2</tablerow>
+ <text>When Dimitri enters the battlefield, return target creature with mana value of 3 or less to the battlefield
+Whenever Dimitri crew a vehicule the first time this turn, untap Dimitri, it get Vigilance until the end of turn.</text>
+</card>
+<card>
+ <name>Proxy Voss</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/proxyvoss.png">RPG</set>
+ <color>U</color>
+ <manacost>3U</manacost>
+ <cmc>4</cmc>
+ <type>Legendary Creature - Human Rogue </type>
+ <pt>2/2</pt>
+ <tablerow>2</tablerow>
+ <text>When Proxy Voss enters the battlefield Investigate for each creature target player controls. (Create a colorless Clue artifact token with “2, Sacrifice this artifact: Draw a card.”)</text>
+ <related count="1">Clue Token</related>
+</card>
+<card>
+ <name>Progress Station</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/progressstation.png">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land - Plains Swamp </type>
+ <tablerow>0</tablerow>
+ <text>Progress Station enters the battlefield tapped unless you control an Advisor or a Wizard creature
+T: Add W or U to your mana pool</text>
+ <cipt>1</cipt>
+</card>
+<card>
+ <name>Aegis Station</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/aegisstation.png">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land - Forest Plains </type>
+ <tablerow>0</tablerow>
+ <text>Aegis Station enters the battlefield tapped unless you control a Soldier or a Warrior creature
+T: Add G or W to your mana pool</text>
+ <cipt>1</cipt>
+</card>
+<card>
+ <name>Absalom</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/absalom.png">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land - Mountain Forest </type>
+ <tablerow>0</tablerow>
+ <text>Excavation Site enters the battlefield tapped unless you control a Warrior or a Bard creature
+T: Add R or G to your mana pool</text>
+ <cipt>1</cipt>
+</card>
+<card>
+ <name>CLS Fortress</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/clsfortress.png">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land - Swamp Mountain </type>
+ <tablerow>0</tablerow>
+ <text>CLS Fortress enters the battlefield tapped unless you control a Cleric or a Shaman creature
+T: Add B or R to your mana pool</text>
+ <cipt>1</cipt>
+</card>
+<card>
+ <name>Action Movie SkillSoft</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/actionmovieskillsoft.png">RPG</set>
+ <color></color>
+ <manacost>3</manacost>
+ <cmc>3</cmc>
+ <type>Artifact - Equipment </type>
+ <tablerow>1</tablerow>
+ <text>Equiped creature is a 4/4 and a Soldier in addtion to it’s type.
+Equip 2</text>
+</card>
+<card>
+ <name>Anger the Bankers</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/angerthebankers.png">RPG</set>
+ <color>R</color>
+ <manacost>2RR</manacost>
+ <cmc>4</cmc>
+ <type>Sorcery</type>
+ <tablerow>3</tablerow>
+ <text>Sacrifice any number of treasure token you control. Create a 5/5 human soldier creature token for each treasure sacrificed this way.</text>
+</card>
+<card>
+ <name>NPC-B</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/npcb.png">RPG</set>
+ <color>W</color>
+ <manacost>1WW</manacost>
+ <cmc>3</cmc>
+ <type>Creature - Human Advisor Cleric </type>
+ <pt>0/3</pt>
+ <tablerow>2</tablerow>
+ <text>T: Target creature get +2/+0 until the end of turn.
+At each player untap steps, untap NPC-B</text>
+</card>
+<card>
+ <name>Anxiety Crisis</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/anxietycrisis.png">RPG</set>
+ <color>U</color>
+ <manacost>1U</manacost>
+ <cmc>2</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Remove up to two target creature from combat
+Draw a card</text>
+</card>
+<card>
+ <name>B team</name>
+ <set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/bteam.png">RPG</set>
+ <color>G</color>
+ <manacost>4GG</manacost>
+ <cmc>6</cmc>
+ <type>Legendary Enchantment</type>
+ <tablerow>1</tablerow>
+ <text>Whenever a nontoken creature enters on the battlefield under opponents control, create a non legendary copy of that creature, except it’s a 1/1</text>
+</card>
+<card>
+ <name>Flip the table</name>
+ <set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/flipthetable.png">RPG</set>
+ <color>RG</color>
+ <manacost>2RG</manacost>
+ <cmc>4</cmc>
+ <type>Sorcery</type>
+ <tablerow>3</tablerow>
+ <text>All permanent and player lose hexproof and shroud until the end of turn.
+Choose one
+- Destroy target enchantment
+- two target creature lose all abilities, those creature fight (Each deals damage equal to its power to the other.)</text>
+</card>
+<card>
+ <name>Secteur B-2</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/secteurb2.png">RPG</set>
+ <color></color>
+ <manacost></manacost>
+ <cmc>0</cmc>
+ <type>Land</type>
+ <tablerow>0</tablerow>
+ <text>T: Add C
+4, T: Target creature can’t be blocked this turn</text>
+</card>
+<card>
+ <name>Lab Orca</name>
+ <set rarity="uncommon"  picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/laborca.png">RPG</set>
+ <color>U</color>
+ <related attach="attach">Mr BlackBerry</related>
+ <manacost>1UU</manacost>
+ <cmc>3</cmc>
+ <type>Creature - Fish </type>
+ <pt>2/3</pt>
+ <tablerow>2</tablerow>
+ <text>Islandwalk (This creature can’t be blocked as long as defending player controls an Island.)
+---
+(Back): Mr BlackBerry</text>
+ <related attach="attach">Mr BlackBerry</related>
+</card>
+<card>
+ <name>Take it, Mod it,Sell it // Space-Sport Center</name>
+ <set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/spacesportcenter.png">RPG</set>
+ <color>WR</color>
+ <manacost>2W</manacost>
+ <cmc>3</cmc>
+ <type>Enchantment - Room</type>
+ <tablerow>1</tablerow>
+ <text>When you unlockthisdoor, give control of target artifact to another opponents, draw two card if you controlled that artifact.//At the beginning of your upkeep, unequip all equipment from target two creature, then those creature fights. (each deals damages equal to ist power to the other)</text>
+</card>
+<card>
+ <name>Grenade EMP dans le ...</name>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/grenadeempdansle.png">RPG</set>
+ <color>B</color>
+ <manacost>2B</manacost>
+ <cmc>3</cmc>
+ <type>Instant</type>
+ <tablerow>3</tablerow>
+ <text>Choose one - destroy target creature; or exile target artifact.
+ Entwine 2 (choose both if you pay the entwine cost)</text>
+</card>
 </cards>
 </cockatrice_carddatabase>
