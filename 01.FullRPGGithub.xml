@@ -6051,7 +6051,7 @@ Whenever one or more creature you controls deals combat damage to a player, retu
 </card>
 <card>
  <name>Giant Centipede</name>
- <set rarity="" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/giantcentipede.jpg">RPG</set>
+ <set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict3/giantcentipede.jpg">RPG</set>
  <color>B</color>
  <manacost>1B</manacost>
  <cmc>2</cmc>
