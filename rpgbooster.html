@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTG Custom RPG Booster Pack Simulator</title>
+  <!-- React & ReactDOM CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!-- Babel Compiler -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0f19;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Card foil effects */
+    .foil-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    .foil-effect::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        115deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.25) 35%,
+        rgba(255, 0, 128, 0.25) 45%,
+        rgba(0, 255, 200, 0.25) 55%,
+        rgba(255, 215, 0, 0.25) 65%,
+        transparent 80%
+      );
+      transform: rotate(-25deg);
+      pointer-events: none;
+      animation: foilShimmer 4s infinite linear;
+    }
+
+    @keyframes foilShimmer {
+      0% { transform: translateY(-30%) rotate(-25deg); }
+      100% { transform: translateY(30%) rotate(-25deg); }
+    }
+
+    /* 3D Card Flip */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+
+    /* Pack Tear Animation */
+    .pack-tear-top {
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease;
+    }
+    .pack-opened .pack-tear-top {
+      transform: translateY(-120px) rotate(-10deg) scale(0.9);
+      opacity: 0;
+    }
+    .pack-opened .pack-body {
+      transform: translateY(40px) scale(0.95);
+      opacity: 0;
+      transition: all 0.6s ease-in-out 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    // --- Embedded XML Card Database Parser ---
+    const RAW_XML = `<?xml version="1.0" encoding="UTF-8"?>
+<cockatrice_carddatabase version="3">
+<cards>
+<card><name>Valle New Shangai</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/vallenewshangai.jpg">RPG</set><color></color><manacost></manacost><cmc>0</cmc><type>Land</type><text>Valle New Shangai enter the battlefield tapped\nWhen Valle New Shangai enters the battlefield, you gain 1 life.\nT: Add R or W</text></card>
+<card><name>Village Abandonné</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/villageabandonne.jpg">RPG</set><color></color><manacost></manacost><cmc>0</cmc><type>Land</type><text>Village Abandonné enter the battlefield tapped\nWhen Village Abandonné enters the battlefield, you gain 1 life.\nT: Add W or B</text></card>
+<card><name>Repaire des Ébénistes</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/repairedesebenistes.jpg">RPG</set><color></color><manacost></manacost><cmc>0</cmc><type>Land</type><text>Repaire des Ébénistes enter the battlefield tapped\nWhen Repaire des Ébénistes enters the battlefield, you gain 1 life.\nT: Add B or G</text></card>
+<card><name>Murkpoint</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/murkpoint.jpg">RPG</set><color></color><manacost></manacost><cmc>0</cmc><type>Land</type><text>Murkpoint enter the battlefield tapped\nWhen Murkpoint enters the battlefield, you gain 1 life.\nT: Add U or R</text></card>
+<card><name>Holy Skar</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/holyskar.jpg">RPG</set><color></color><manacost></manacost><cmc>0</cmc><type>Land</type><text>Holy Skar enter the battlefield tapped\nWhen Holy Skar enters the battlefield, you gain 1 life.\nT: Add G or U</text></card>
+<card><name>B113 M15 DOOM</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/b113m15doom.jpg">RPG</set><color></color><manacost>X4</manacost><cmc>4</cmc><type>Legendary Artifact Creature - Construct Soldier</type><pt>3/3</pt><text>Improvise\nWhen B1.13 M15 DOOM enters the battlefield create X 1/1 colorless construct artifact creature tokens\nif X is 8 or more, destroy all non-artifact creature</text></card>
+<card><name>Tadeusz, Le prince Rouge</name><set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/tadeuszleprincerouge.jpg">RPG</set><color>BR</color><manacost>1BB/RR</manacost><cmc>4</cmc><type>Legendary Creature - Human Bard</type><pt>1/2</pt><text>Other creatures you control get +2/+0.\nAt the beginning of combat on your turn Roll a D20.\nPartner with Alberic, le journaliste</text></card>
+<card><name>Alberic, Le Journaliste</name><set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/albericlejournaliste.jpg">RPG</set><color>WR</color><manacost>2RR/WW</manacost><cmc>5</cmc><type>Legendary Creature - Human Rogue</type><pt>3/4</pt><text>Defender\n1RW: Copy target activate ability you control.\nPartner with Tadeuzs, le prince rouge</text></card>
+<card><name>Bardic Performance</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/bardicperformance.jpg">RPG</set><color>R</color><manacost>2RR</manacost><cmc>4</cmc><type>Enchantment</type><text>As long as you control a bard creature untapped, Goad all creatures</text></card>
+<card><name>Imprison in the Sword</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/imprisoninthesword.jpg">RPG</set><color>U</color><manacost>3U</manacost><cmc>4</cmc><type>Artifact - Equipment</type><text>When Imprison in the Sword enters the battlefield, exile target creature.\nEquipped creature gets +X/+X.</text></card>
+<card><name>Kurd, Le Contrebandier</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/kurdlecontrebandier.jpg">RPG</set><color>RG</color><manacost>3RG</manacost><cmc>5</cmc><type>Legendary Creature - Lizard Warrior</type><pt>4/4</pt><text>When Kurd enters the battlefield or attacks, choose one:\n• Create a Treasure Token\n• Destroy target artifact or enchantment.\n• Other creatures get +2/+0 until end of turn</text></card>
+<card><name>Wrong kind of polymorph</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/wrongkindofpolymorph.jpg">RPG</set><color>U</color><manacost>3UU</manacost><cmc>5</cmc><type>Enchantment - Aura</type><text>Enchant creature\nEnchanted creature gets +2/+2, has flying, and is a Dragon in addition to its other types.</text></card>
+<card><name>Zeon's fireball</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/zeonsfireball.jpg">RPG</set><color>R</color><manacost>XRR</manacost><cmc>2</cmc><type>Sorcery</type><text>Zeon’s fireball deals X damage to each creature.\nCycling 3\nIf cycled, deals 3 damage to any target.</text></card>
+<card><name>Datte Spider</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/dattespider.jpg">RPG</set><color>G</color><manacost>1G</manacost><cmc>2</cmc><type>Creature - Spider</type><pt>1/2</pt><text>Reach, Deathtouch</text></card>
+<card><name>Holy Cluster Soldier</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/holyclustersoldier.jpg">RPG</set><color>UG</color><manacost>3GU</manacost><cmc>5</cmc><type>Creature - Human Soldier</type><pt>3/3</pt><text>Trample\nWhen Holy Cluster Soldier enters the battlefield, draw a card.</text></card>
+<card><name>Head Hunter</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/headhunter.jpg">RPG</set><color>R</color><manacost>2R</manacost><cmc>3</cmc><type>Artifact Creature - Thopter</type><pt>2/1</pt><text>Flying\nT: Head hunter deals 1 damage to any target.</text></card>
+<card><name>Demonic Ebenist</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/demonicebenist.jpg">RPG</set><color>B</color><manacost>1B</manacost><cmc>2</cmc><type>Creature - Human Cleric</type><pt>1/1</pt><text>When Demonic Ebenist dies, create a 2/2 colorless construct artifact creature token.</text></card>
+<card><name>RPG system mismatch</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/rpgsystemmismatch.jpg">RPG</set><color>U</color><manacost>1UU</manacost><cmc>3</cmc><type>Instant</type><text>Counter target spell</text></card>
+<card><name>Chess Box</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/chessbox.jpg">RPG</set><color>G</color><manacost>G</manacost><cmc>1</cmc><type>Instant</type><text>Choose target creature you control and target creature you don’t control. They fight each other.</text></card>
+<card><name>ADH</name><set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/adh.jpg">RPG</set><color></color><manacost>3</manacost><cmc>3</cmc><type>Artifact Creature - Construct</type><pt>1/1</pt><text>At the beginning of your upkeep, you may create a token that’s a copy of ADH.\nWhen ADH dies, it deals 1 damage to each creature.</text></card>
+<card><name>Le Roux</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/leroux.jpg">RPG</set><color>WU</color><manacost>1WU</manacost><cmc>3</cmc><type>Legendary Creature - Human Citizen</type><pt>1/1</pt><text>Level up WU\nLEVEL 2-4: Lifelink, 4/4\nLEVEL 5+: Lifelink, Indestructible, 6/6</text></card>
+<card><name>Repented Soldier</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/repentedsoldier.jpg">RPG</set><color>W</color><manacost>W</manacost><cmc>1</cmc><type>Creature - Human Soldier</type><pt>2/1</pt><text></text></card>
+<card><name>Despair Knight</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/despairknight.jpg">RPG</set><color>BR</color><manacost>1BR</manacost><cmc>3</cmc><type>Creature - Human Knight</type><pt>2/2</pt><text>Double strike</text></card>
+<card><name>Body Bank</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/bodybank.jpg">RPG</set><color>UG</color><manacost>2GU</manacost><cmc>4</cmc><type>Enchantment</type><text>GU: Regenerate target creature you control.\n2GGUU: Copy target creature spell you control.</text></card>
+<card><name>Shadow Ninjas</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/shadowninjas.jpg">RPG</set><color>B</color><manacost>2B</manacost><cmc>3</cmc><type>Creature - Human Ninja</type><pt>2/2</pt><text>Ninjutsu 1B\nWhenever Ninjas or Rogues deal combat damage, create a 1/1 Ninja token.</text></card>
+<card><name>Version Change</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/versionchange.jpg">RPG</set><color>W</color><manacost>3WWW</manacost><cmc>6</cmc><type>Sorcery</type><text>Destroy all nonland permanents.</text></card>
+<card><name>Stormtrooper</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/stormtrooper.jpg">RPG</set><color>R</color><manacost>2R</manacost><cmc>3</cmc><type>Creature - Human Soldier</type><pt>2/2</pt><text>Haste\nWhen Stormtrooper enters the battlefield, bolster 1.</text></card>
+<card><name>Exhuman</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/exhuman.jpg">RPG</set><color>G</color><manacost>3G</manacost><cmc>4</cmc><type>Creature - Human Warrior</type><pt>0/0</pt><text>Exhuman enters the battlefield with a +1/+1 counter on it for each Artifact you control</text></card>
+<card><name>Ikaria's Lamp</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/ikariaslamp.jpg">RPG</set><color></color><manacost>3</manacost><cmc>3</cmc><type>Artifact</type><text>T: Add one mana of any color</text></card>
+<card><name>Plasma Rifle</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/plasmarifle.jpg">RPG</set><color></color><manacost>5</manacost><cmc>5</cmc><type>Artifact - Equipment</type><text>Equip 4\nEquipped creature gets +3/+3 and has trample and reach.</text></card>
+<card><name>Odatech Commander</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/odatechcommander.jpg">RPG</set><color>U</color><manacost>3U</manacost><cmc>4</cmc><type>Creature - Human Wizard</type><pt>2/2</pt><text>Flash\nWhen Odatech Commander enters the battlefield, return target creature to its owner’s hand.</text></card>
+<card><name>Andro, le protecteur</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/androleprotecteur.jpg">RPG</set><color>U</color><manacost>3U</manacost><cmc>4</cmc><type>Legendary Creature - Dwarf Wizard</type><pt>2/3</pt><text>When Andro enters the battlefield, target creature gains protection from the color of your choice until end of turn.</text></card>
+<card><name>Arachnomancer</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/arachnomancer.jpg">RPG</set><color>B</color><manacost>4B</manacost><cmc>5</cmc><type>Creature - Elf Shaman</type><pt>3/3</pt><text>When Arachnomancer dies, create three 1/1 Black spider creature tokens with deathtouch and reach.</text></card>
+<card><name>Cringe</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/cringe.jpg">RPG</set><color>B</color><manacost>1B</manacost><cmc>2</cmc><type>Instant</type><text>Destroy target nonartifact creature.</text></card>
+<card><name>New Mandate Station</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/newmandatestation.jpg">RPG</set><color></color><manacost></manacost><cmc>0</cmc><type>Land</type><text>New Mandate Station enters the battlefield tapped unless you control a Plains.\nT: Add W.</text></card>
+<card><name>Svala Koridottir, la Viking</name><set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/svalakoridottirlaviking.jpg">RPG</set><color>RG</color><manacost>3RG</manacost><cmc>5</cmc><type>Legendary Creature - Human Warrior Werewolf</type><pt>3/3</pt><text>When Svala enters the battlefield, you may have it fight another creature.\n2RG: Creatures you control gain trample and +2/+2.\n--- (Back): Svala, the Frenzy Werewolf</text></card>
+<card><name>Odatech Bot</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/odatechbot.jpg">RPG</set><color>U</color><manacost>5U</manacost><cmc>6</cmc><type>Artifact Creature - Construct</type><pt>4/4</pt><text>Flash\nWhen Odatech Bot enters the battlefield, draw a card.</text></card>
+<card><name>Temacron, the strong</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/temacronthestrong.jpg">RPG</set><color>R</color><manacost>3R</manacost><cmc>4</cmc><type>Legendary Creature - Orc Warrior</type><pt>6/2</pt><text>Trample</text></card>
+<card><name>Razeth, Le Dieux Dragon</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/razethledieuxdragon.jpg">RPG</set><color>R</color><manacost>5RR</manacost><cmc>7</cmc><type>Legendary Creature - Dragon God</type><pt>6/6</pt><text>Flying\nWhenever Razeth deals combat damage to a player, create that many Treasure tokens</text></card>
+<card><name>PC Soldier</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/pcsoldier.jpg">RPG</set><color>W</color><manacost>3W</manacost><cmc>4</cmc><type>Creature - Human Soldier</type><pt>4/2</pt><text>First strike</text></card>
+<card><name>Roule tes stats</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/rouletesstats.jpg">RPG</set><color></color><manacost>2</manacost><cmc>2</cmc><type>Artifact</type><text>T: Choose a creature, roll D6 counters.</text></card>
+<card><name>Dragomir</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/dragomir.jpg">RPG</set><color>U</color><manacost>UU</manacost><cmc>2</cmc><type>Legendary Creature - Human Wizard</type><pt>1/2</pt><text>U, T: Investigate.</text></card>
+<card><name>Edennard</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/edennard.jpg">RPG</set><color>R</color><manacost>1RR</manacost><cmc>3</cmc><type>Legendary Creature - Human Pirate</type><pt>2/2</pt><text>Reach\nT: Edennard deals 2 damage to any target</text></card>
+<card><name>La Valliérite</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/lavallierite.jpg">RPG</set><color>R</color><manacost>3R</manacost><cmc>4</cmc><type>Instant</type><text>Shuffle target permanent into library, reveal top card.</text></card>
+<card><name>Fading Portrait</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/fadingportrait.jpg">RPG</set><color></color><manacost>3</manacost><cmc>3</cmc><type>Artifact</type><text>1, T: Scry 2</text></card>
+<card><name>Capitaine Dravis</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/capitainedravis.jpg">RPG</set><color>W</color><manacost>3W</manacost><cmc>4</cmc><type>Legendary Creature - Human Knight</type><pt>3/2</pt><text>First strike, vigilance\nWhen Dravis enters, create two 1/1 White soldier tokens.</text></card>
+<card><name>Ernest, le Redneck</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/ernestleredneck.jpg">RPG</set><color>BR</color><manacost>1BR</manacost><cmc>3</cmc><type>Legendary Creature - Human Rogue</type><pt>2/2</pt><text>Persist</text></card>
+<card><name>Exalted</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/exalted.jpg">RPG</set><color>W</color><manacost>2WW</manacost><cmc>4</cmc><type>Enchantment - Aura</type><text>Enchant creature gets +2/+2 and vigilance.</text></card>
+<card><name>Libéré dans le Désert</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/liberedansledesert.jpg">RPG</set><color>W</color><manacost>1W</manacost><cmc>2</cmc><type>Instant</type><text>Exile target creature. Search for basic land.</text></card>
+<card><name>Stony Giant</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/stonygiant.jpg">RPG</set><color>W</color><manacost>3WW</manacost><cmc>5</cmc><type>Creature - Giant</type><pt>4/4</pt><text>Vigilance</text></card>
+<card><name>TITANs !</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/titans.jpg">RPG</set><color></color><manacost>5</manacost><cmc>5</cmc><type>Instant</type><text>Devoid. Exile target creature if power is less than revealed creature.</text></card>
+<card><name>Ekofresh</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/ekofresh.jpg">RPG</set><color>U</color><manacost>4UU</manacost><cmc>6</cmc><type>Legendary Creature - Human Wizard</type><pt>2/3</pt><text>Look at top card of library. Play lands and cast spells from top.</text></card>
+<card><name>Je voie des choses</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/jevoiedeschoses.jpg">RPG</set><color>U</color><manacost>U</manacost><cmc>1</cmc><type>Enchantment</type><text>Your opponents play with their hands revealed.</text></card>
+<card><name>Gordon Ramsey</name><set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/gordonramsey.jpg">RPG</set><color>W</color><manacost>3W</manacost><cmc>4</cmc><type>Creature - Shapeshifter Bard</type><pt>2/3</pt><text>Changeling\nCreate two Food tokens. Sacrifice 5 Food to put creature from hand to battlefield.</text></card>
+<card><name>Medichine</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/medichine.jpg">RPG</set><color>UG</color><manacost>4GU</manacost><cmc>6</cmc><type>Sorcery</type><text>Shield counters on up to 5 target creatures. Proliferate on cycle.</text></card>
+<card><name>Pandora Gate</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/pandoragate.jpg">RPG</set><color></color><manacost>5</manacost><cmc>5</cmc><type>Artifact</type><text>4, T: Roll d20 for dynamic effects.</text></card>
+<card><name>TITAN Chronus</name><set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/titanchronus.jpg">RPG</set><color></color><manacost>6CC</manacost><cmc>8</cmc><type>Legendary Creature - TITAN</type><pt>10/10</pt><text>Devoid. Cannot be countered. You dictate combat attacks and blocks.</text></card>
+<card><name>Will x3</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/willx3.jpg">RPG</set><color>B</color><manacost>1B</manacost><cmc>2</cmc><type>Sorcery</type><text>Each opponent discards a card. Drain 1 life for each.</text></card>
+<card><name>Nuke the Entire Site from Orbit</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/nuketheentiresitefromorbit.jpg">RPG</set><color>R</color><manacost>4R</manacost><cmc>5</cmc><type>Sorcery</type><text>Deals 10 damage to all creatures. No regeneration.</text></card>
+<card><name>Mimic Portal</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/mimicportal.jpg">RPG</set><color>R</color><manacost>2R</manacost><cmc>3</cmc><type>Creature - Shapeshifter</type><pt>1/4</pt><text>Defender, Changeling.</text></card>
+<card><name>Skeleton Farmer</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/skeletonfarmer.jpg">RPG</set><color>B</color><manacost>B</manacost><cmc>1</cmc><type>Creature - Skeleton Peasant</type><pt>1/1</pt><text>Lifelink. Gain 1 life when creatures die.</text></card>
+<card><name>Keltas's Rising</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/keltassrising.jpg">RPG</set><color></color><manacost>2BB</manacost><cmc>4</cmc><type>Enchantment</type><text>When enters, create 2/2 Zombie token.\nTransforms if 3+ creatures died.\n--- (Back): Dragonna</text></card>
+<card><name>Sir Six's Lightsaber</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/sirsixslightsaber.jpg">RPG</set><color></color><manacost>3</manacost><cmc>3</cmc><type>Artifact - Equipment</type><text>Equipped gets +2/+1 and damage prevention. Equip 2.</text></card>
+<card><name>Eclipse, the Modded</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/eclipsethemodded.jpg">RPG</set><color>G</color><manacost>2G</manacost><cmc>3</cmc><type>Legendary Creature - Human Warrior</type><pt>2/2</pt><text>Put +1/+1 counter. Creatures with counters get trample.</text></card>
+<card><name>Replicating Nanoswarm</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/replicatingnanoswarm.jpg">RPG</set><color>G</color><manacost>3GG</manacost><cmc>5</cmc><type>Artifact Creature - Ooze</type><pt>2/2</pt><text>Deathtouch. Destroy target artifact, enchantment, or land.</text></card>
+<card><name>Irzaïr</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/irzair.jpg">RPG</set><color>G</color><manacost>1GG</manacost><cmc>3</cmc><type>Legendary Creature - Elf Bard</type><pt>2/3</pt><text>Fights target creature an opponent controls.</text></card>
+<card><name>Iwan, Le Crusher</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/iwanlecrusher.jpg">RPG</set><color>RG</color><manacost>2RG</manacost><cmc>4</cmc><type>Legendary Creature - Merfolk Soldier</type><pt>4/3</pt><text>Gets +2/+2 vs artifact creatures. Destroy artifact on combat damage.</text></card>
+<card><name>Iwan's Adamantine Sword</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/iwansadamantinesword.jpg">RPG</set><color></color><manacost>3</manacost><cmc>3</cmc><type>Artifact - Equipment</type><text>Equipped gets +2/+0 and strips indestructible.</text></card>
+<card><name>Marek</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/marek.jpg">RPG</set><color>W</color><manacost>1W</manacost><cmc>2</cmc><type>Legendary Creature - Human Monk</type><pt>2/2</pt><text>Lifelink. Gains +4/+4 if you control no artifacts.</text></card>
+<card><name>Jet Privé de Tim</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/jetprivedetim.jpg">RPG</set><color></color><manacost>4</manacost><cmc>4</cmc><type>Artifact - Vehicle</type><pt>6/6</pt><text>Flying. Create treasure on ETB. Crew 4.</text></card>
+<card><name>Frenzyed Rage</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/frenzyedrage.jpg">RPG</set><color>G</color><manacost>2G</manacost><cmc>3</cmc><type>Instant</type><text>Target creature gains +4/+4 and indestructible.</text></card>
+<card><name>Alastor la Faucheuse</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/alastorlafaucheuse.jpg">RPG</set><color>B</color><manacost>3BB</manacost><cmc>5</cmc><type>Legendary Creature - Devil Angel</type><pt>4/4</pt><text>Flying. Take control of target creature with power 3 or less.</text></card>
+<card><name>Plan de Braquage</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/plandebraquage.jpg">RPG</set><color>G</color><manacost>2G</manacost><cmc>3</cmc><type>Enchantment</type><text>Roll D20 on upkeep for draw, treasure or tutors.</text></card>
+<card><name>Fror's Wolf</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/frorswolf.jpg">RPG</set><color>G</color><manacost>1G</manacost><cmc>2</cmc><type>Creature - Wolf</type><pt>2/2</pt><text>Put a +1/+1 counter on target creature you control.</text></card>
+<card><name>Fror</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/fror.jpg">RPG</set><color>G</color><manacost>3GG</manacost><cmc>5</cmc><type>Legendary Creature - Dwarf Warrior</type><pt>3/3</pt><text>Fights creatures. Grows when enemy dies.</text></card>
+<card><name>Simulspace</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/simulspace.jpg">RPG</set><color>U</color><manacost>4U</manacost><cmc>5</cmc><type>Enchantment</type><text>Exile dying creatures and cast them from exile.</text></card>
+<card><name>Scott's Server</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/scottsserver.jpg">RPG</set><color></color><manacost>1</manacost><cmc>1</cmc><type>Artifact</type><text>No maximum hand size.</text></card>
+<card><name>Firewall Software</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/firewallsoftware.jpg">RPG</set><color>W</color><manacost>1WW</manacost><cmc>3</cmc><type>Enchantment</type><text>You and your creatures have Ward 1.</text></card>
+<card><name>Money Can Buy Everything</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/moneycanbuyeverything.jpg">RPG</set><color>RG</color><manacost>3RG</manacost><cmc>5</cmc><type>Enchantment</type><text>Creates 3 Treasures. Sacrifice treasure for tokens, damage, haste.</text></card>
+<card><name>Lyndia Ludwig</name><set rarity="rare" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/lyndialudwig.jpg">RPG</set><color>WG</color><manacost>2GW</manacost><cmc>4</cmc><type>Legendary Creature - Human Artificer</type><pt>4/4</pt><text>Transform 5WG. Partner with Kayna Ludwig\n--- (Back): Lyndia 20</text></card>
+<card><name>Kayna Ludwig</name><set rarity="common" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/kaynaludwig.jpg">RPG</set><color>WU</color><manacost>1WU</manacost><cmc>3</cmc><type>Legendary Creature - Human Advisor</type><pt>0/3</pt><text>Hexproof, partner with Lyndia Ludwig. Counters spells targeting Lyndia.</text></card>
+<card><name>Judge Stolz, The Justice</name><set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/judgestolzthejustice.jpg">RPG</set><color>WB</color><manacost>4WWBB</manacost><cmc>8</cmc><type>Legendary Creature - Human Soldier</type><pt>6/6</pt><text>Protection W/B. Riot. Roll D20 on attack to exile or destroy.</text></card>
+<card><name>Blade of Eternal Chaos</name><set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict/bladeofeternalchaos.jpg">RPG</set><color></color><manacost>5</manacost><cmc>5</cmc><type>Legendary Artifact - Equipment</type><text>Roll D20 on attack for chaotic divine effects!</text></card>
+<card><name>Santa Claus</name><set rarity="mythic" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict2/santaclaus.jpg">RPG</set><color>W</color><manacost>3WW</manacost><cmc>5</cmc><type>Legendary Planeswalker - Santa</type><pt>Loyalty: 4</pt><text>[+2]: Create treasures.\n[+1]: Create 1/1 Lutin.\n[-8]: Transform Santa Claus\n--- (Back): The Mighty Claus</text></card>
+<card><name>Lab Orca</name><set rarity="uncommon" picURL="https://raw.githubusercontent.com/FuriiaGeek/magic_sets/main/CardPict4/laborca.png">RPG</set><color>U</color><manacost>1UU</manacost><cmc>3</cmc><type>Creature - Fish</type><pt>2/3</pt><text>Islandwalk\n--- (Back): Mr BlackBerry</text></card>
+</cards>
+</cockatrice_carddatabase>`;
+
+    // Helper: Parse XML into JS Card Objects
+    function parseXMLDatabase(xmlString) {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+      const cardNodes = xmlDoc.getElementsByTagName("card");
+      const cards = [];
+
+      for (let i = 0; i < cardNodes.length; i++) {
+        const node = cardNodes[i];
+        const name = node.getElementsByTagName("name")[0]?.textContent || "Unnamed Card";
+        const setNode = node.getElementsByTagName("set")[0];
+        const rarity = setNode?.getAttribute("rarity") || "common";
+        const picURL = setNode?.getAttribute("picURL") || "";
+        const color = node.getElementsByTagName("color")[0]?.textContent || "";
+        const manacost = node.getElementsByTagName("manacost")[0]?.textContent || "";
+        const cmc = parseInt(node.getElementsByTagName("cmc")[0]?.textContent || "0", 10);
+        const type = node.getElementsByTagName("type")[0]?.textContent || "Card";
+        const pt = node.getElementsByTagName("pt")[0]?.textContent || "";
+        const text = node.getElementsByTagName("text")[0]?.textContent || "";
+
+        // Double-sided detection based on XML text or specific card names
+        const isDoubleSided = text.includes("---") || text.includes("(Back)");
+        let backDetails = null;
+
+        if (isDoubleSided) {
+          const splitText = text.split("---");
+          const frontText = splitText[0].trim();
+          const backText = splitText[1] ? splitText[1].trim() : "Back side of card";
+          backDetails = {
+            name: name + " (Back)",
+            text: backText,
+            type: type
+          };
+        }
+
+        cards.push({
+          id: i + 1,
+          name,
+          rarity: rarity.toLowerCase(),
+          picURL,
+          color: color || "C",
+          manacost,
+          cmc,
+          type,
+          pt,
+          text,
+          isDoubleSided,
+          backDetails
+        });
+      }
+      return cards;
+    }
+
+    // --- Color Badge Component ---
+    const ColorBadge = ({ color }) => {
+      const colorsMap = {
+        W: 'bg-amber-100 text-amber-900 border-amber-300',
+        U: 'bg-blue-600 text-white border-blue-400',
+        B: 'bg-zinc-800 text-zinc-100 border-zinc-600',
+        R: 'bg-red-600 text-white border-red-400',
+        G: 'bg-emerald-600 text-white border-emerald-400',
+        C: 'bg-slate-700 text-slate-200 border-slate-500'
+      };
+
+      if (!color || color === 'C') {
+        return <span className="px-1.5 py-0.5 text-[10px] rounded font-bold border bg-slate-700 text-slate-200 border-slate-500">C</span>;
+      }
+
+      return (
+        <div className="flex gap-0.5">
+          {color.split('').map((c, idx) => (
+            <span key={idx} className={`px-1.5 py-0.5 text-[10px] rounded font-bold border ${colorsMap[c] || colorsMap.C}`}>
+              {c}
+            </span>
+          ))}
+        </div>
+      );
+    };
+
+    // --- MTG Card Component with Fallback UI & Flip Support ---
+    const CardDisplay = ({ card, isFlippedInitially = false, onToggleCollect, isCollected = false, size = "md" }) => {
+      const [imgError, setImgError] = useState(false);
+      const [isBackVisible, setIsBackVisible] = useState(false);
+
+      const rarityColors = {
+        mythic: 'from-amber-500 via-orange-600 to-amber-700 text-amber-100 border-amber-400',
+        rare: 'from-yellow-400 to-amber-600 text-yellow-950 border-yellow-300',
+        uncommon: 'from-slate-300 via-cyan-200 to-slate-400 text-slate-900 border-cyan-200',
+        common: 'from-slate-600 to-slate-800 text-slate-200 border-slate-500'
+      };
+
+      const colorBorders = {
+        W: 'border-amber-200/40 bg-amber-950/20',
+        U: 'border-blue-500/40 bg-blue-950/20',
+        B: 'border-purple-900/50 bg-zinc-950/40',
+        R: 'border-red-500/40 bg-red-950/20',
+        G: 'border-emerald-500/40 bg-emerald-950/20',
+        C: 'border-slate-500/40 bg-slate-900/30'
+      };
+
+      const borderClass = colorBorders[card.color?.[0]] || colorBorders.C;
+
+      return (
+        <div className={`relative group perspective-1000 select-none ${size === 'lg' ? 'w-72 h-[410px]' : 'w-56 h-[320px]'}`}>
+          <div className={`w-full h-full transform-style-3d ${isBackVisible ? 'rotate-y-180' : ''}`}>
+            
+            {/* FRONT FACE */}
+            <div className={`absolute inset-0 rounded-xl p-2.5 flex flex-col justify-between border-2 bg-slate-900/90 backdrop-blur-md shadow-2xl transition-all duration-300 group-hover:shadow-cyan-500/20 ${borderClass} ${card.rarity === 'mythic' || card.rarity === 'rare' ? 'foil-effect' : ''}`}>
+              
+              {/* Card Header */}
+              <div className="flex justify-between items-center bg-slate-950/80 p-1.5 rounded-t-lg border border-slate-800/80">
+                <span className="font-cinzel font-bold text-xs sm:text-sm truncate text-slate-100 max-w-[70%]">
+                  {card.name}
+                </span>
+                <div className="flex items-center gap-1">
+                  <span className="font-mono text-xs font-semibold text-cyan-300">{card.manacost}</span>
+                  <ColorBadge color={card.color} />
+                </div>
+              </div>
+
+              {/* Card Artwork / Image Display */}
+              <div className="relative flex-1 my-1.5 rounded bg-slate-950 border border-slate-800/80 overflow-hidden flex items-center justify-center">
+                {!imgError && card.picURL ? (
+                  <img
+                    src={card.picURL}
+                    alt={card.name}
+                    className="w-full h-full object-cover"
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  <div className="p-3 text-center flex flex-col items-center justify-center h-full bg-gradient-to-br from-slate-900 to-indigo-950/60">
+                    <i data-lucide="shield" className="w-8 h-8 text-cyan-500/60 mb-1"></i>
+                    <span className="font-cinzel text-xs text-slate-400 font-semibold">{card.name}</span>
+                    <span className="text-[10px] text-slate-500 mt-1">{card.type}</span>
+                  </div>
+                )}
+                
+                {/* Rarity Pill Overlay */}
+                <span className={`absolute top-1.5 right-1.5 px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase border bg-gradient-to-r ${rarityColors[card.rarity]}`}>
+                  {card.rarity}
+                </span>
+
+                {/* Transform button overlay if double sided */}
+                {card.isDoubleSided && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsBackVisible(!isBackVisible);
+                    }}
+                    className="absolute bottom-1.5 right-1.5 bg-cyan-600/90 hover:bg-cyan-500 text-white p-1 rounded-full shadow-lg text-[10px] flex items-center gap-1 px-2 border border-cyan-300"
+                    title="Flip Card"
+                  >
+                    <i data-lucide="repeat" className="w-3 h-3"></i> Flip
+                  </button>
+                )}
+              </div>
+
+              {/* Card Type Bar */}
+              <div className="bg-slate-950/90 px-2 py-1 rounded text-[11px] font-semibold text-slate-300 border border-slate-800 flex justify-between items-center">
+                <span className="truncate">{card.type}</span>
+                <span className="text-[10px] text-cyan-400 font-mono">CMC {card.cmc}</span>
+              </div>
+
+              {/* Text Box */}
+              <div className="bg-slate-950/95 p-2 rounded-b-lg border border-slate-800/80 text-[10.5px] leading-snug text-slate-300 min-h-[70px] max-h-[90px] overflow-y-auto whitespace-pre-line mt-1">
+                {card.text}
+              </div>
+
+              {/* Power / Toughness Footer */}
+              {card.pt && (
+                <div className="self-end mt-1 px-2.5 py-0.5 bg-slate-950 text-cyan-300 border border-cyan-500/40 rounded font-bold font-mono text-xs shadow-md">
+                  {card.pt}
+                </div>
+              )}
+            </div>
+
+            {/* BACK FACE (For Transformable Cards) */}
+            {card.isDoubleSided && (
+              <div className={`absolute inset-0 rounded-xl p-2.5 flex flex-col justify-between border-2 bg-slate-900/95 backdrop-blur-md shadow-2xl rotate-y-180 backface-hidden ${borderClass}`}>
+                <div className="flex justify-between items-center bg-slate-950 p-1.5 rounded-t-lg border border-slate-800">
+                  <span className="font-cinzel font-bold text-xs text-amber-300 truncate">
+                    {card.name} (Transform Side)
+                  </span>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsBackVisible(false);
+                    }}
+                    className="text-xs text-cyan-400 underline"
+                  >
+                    Front
+                  </button>
+                </div>
+                
+                <div className="flex-1 my-2 bg-slate-950/80 border border-slate-800 rounded p-3 text-xs text-slate-200 overflow-y-auto whitespace-pre-line">
+                  {card.backDetails?.text || "Transformed Face details."}
+                </div>
+
+                <div className="text-center text-[10px] text-slate-500">
+                  Dual-Face Custom RPG Card
+                </div>
+              </div>
+            )}
+
+          </div>
+        </div>
+      );
+    };
+
+    // --- Main App Component ---
+    function App() {
+      const [cards, setCards] = useState([]);
+      const [currentPack, setCurrentPack] = useState([]);
+      const [revealedIndices, setRevealedIndices] = useState(new Set());
+      const [inventory, setInventory] = useState(() => {
+        const saved = localStorage.getItem('mtg_rpg_inventory');
+        return saved ? JSON.parse(saved) : {};
+      });
+      const [stats, setStats] = useState(() => {
+        const saved = localStorage.getItem('mtg_rpg_stats');
+        return saved ? JSON.parse(saved) : { packsOpened: 0, mythics: 0, rares: 0 };
+      });
+      
+      const [packMode, setPackMode] = useState('pure'); // 'pure' or 'draft'
+      const [isOpeningAnim, setIsOpeningAnim] = useState(false);
+      const [activeTab, setActiveTab] = useState('booster'); // 'booster' | 'collection'
+      
+      // Collection Filter state
+      const [filterRarity, setFilterRarity] = useState('all');
+      const [filterColor, setFilterColor] = useState('all');
+      const [filterType, setFilterType] = useState('all');
+      const [searchQuery, setSearchQuery] = useState('');
+
+      // Load & Parse Cards on Mount
+      useEffect(() => {
+        const parsed = parseXMLDatabase(RAW_XML);
+        setCards(parsed);
+      }, []);
+
+      // Refresh Lucide Icons on Render
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+
+      // Sync inventory & stats to localStorage
+      useEffect(() => {
+        localStorage.setItem('mtg_rpg_inventory', JSON.stringify(inventory));
+      }, [inventory]);
+
+      useEffect(() => {
+        localStorage.setItem('mtg_rpg_stats', JSON.stringify(stats));
+      }, [stats]);
+
+      // --- Booster Pack Generation Algorithm ---
+      const generateBoosterPack = () => {
+        if (cards.length === 0) return;
+
+        let pack = [];
+        if (packMode === 'pure') {
+          // Pure Random 15 Mix
+          for (let i = 0; i < 15; i++) {
+            const randomIndex = Math.floor(Math.random() * cards.length);
+            pack.push(cards[randomIndex]);
+          }
+        } else {
+          // Balanced Draft Pack logic (1 Rare/Mythic, 3 Uncommons, 10 Commons, 1 Land)
+          const mythicsAndRares = cards.filter(c => c.rarity === 'mythic' || c.rarity === 'rare');
+          const uncommons = cards.filter(c => c.rarity === 'uncommon');
+          const commons = cards.filter(c => c.rarity === 'common' && c.type !== 'Land');
+          const lands = cards.filter(c => c.type === 'Land');
+
+          // Helper safely picks random item
+          const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)] || cards[0];
+
+          // 1 Rare/Mythic
+          pack.push(getRandom(mythicsAndRares.length > 0 ? mythicsAndRares : cards));
+
+          // 3 Uncommons
+          for (let i = 0; i < 3; i++) {
+            pack.push(getRandom(uncommons.length > 0 ? uncommons : cards));
+          }
+
+          // 10 Commons
+          for (let i = 0; i < 10; i++) {
+            pack.push(getRandom(commons.length > 0 ? commons : cards));
+          }
+
+          // 1 Land
+          pack.push(getRandom(lands.length > 0 ? lands : cards));
+        }
+
+        // Trigger opening foil tearing animation
+        setIsOpeningAnim(true);
+        setRevealedIndices(new Set());
+        
+        setTimeout(() => {
+          setCurrentPack(pack);
+          setIsOpeningAnim(false);
+
+          // Update Stats & Inventory
+          const newInventory = { ...inventory };
+          let packMythics = 0;
+          let packRares = 0;
+
+          pack.forEach(card => {
+            newInventory[card.name] = (newInventory[card.name] || 0) + 1;
+            if (card.rarity === 'mythic') packMythics++;
+            if (card.rarity === 'rare') packRares++;
+          });
+
+          setInventory(newInventory);
+          setStats(prev => ({
+            packsOpened: prev.packsOpened + 1,
+            mythics: prev.mythics + packMythics,
+            rares: prev.rares + packRares
+          }));
+
+          // Confetti if Mythic inside
+          if (packMythics > 0 && window.confetti) {
+            window.confetti({
+              particleCount: 80,
+              spread: 70,
+              origin: { y: 0.6 }
+            });
+          }
+        }, 600);
+      };
+
+      const revealCard = (index) => {
+        setRevealedIndices(prev => new Set(prev).add(index));
+      };
+
+      const revealAll = () => {
+        const allIndices = new Set(currentPack.map((_, i) => i));
+        setRevealedIndices(allIndices);
+      };
+
+      // Collection Filtering
+      const filteredCollection = useMemo(() => {
+        return cards.filter(card => {
+          if (filterRarity !== 'all' && card.rarity !== filterRarity) return false;
+          if (filterColor !== 'all' && !card.color.includes(filterColor)) return false;
+          if (filterType !== 'all' && !card.type.toLowerCase().includes(filterType.toLowerCase())) return false;
+          if (searchQuery && !card.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+          return true;
+        });
+      }, [cards, filterRarity, filterColor, filterType, searchQuery]);
+
+      const uniqueCollectedCount = useMemo(() => {
+        return Object.keys(inventory).length;
+      }, [inventory]);
+
+      const setCompletionPercentage = useMemo(() => {
+        if (cards.length === 0) return 0;
+        return ((uniqueCollectedCount / cards.length) * 100).toFixed(1);
+      }, [uniqueCollectedCount, cards]);
+
+      return (
+        <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 flex flex-col">
+          
+          {/* TOP NAVBAR */}
+          <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                  <i data-lucide="package-open" className="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                  <h1 className="font-cinzel text-lg font-bold bg-gradient-to-r from-cyan-400 via-sky-200 to-indigo-300 bg-clip-text text-transparent">
+                    RPG Set Booster Pack Simulator
+                  </h1>
+                  <p className="text-xs text-slate-400">Custom 100+ MTG RPG Set</p>
+                </div>
+              </div>
+
+              {/* Navigation Tabs */}
+              <div className="flex items-center gap-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
+                <button
+                  onClick={() => setActiveTab('booster')}
+                  className={`px-4 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 transition-all ${
+                    activeTab === 'booster'
+                      ? 'bg-cyan-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <i data-lucide="sparkles" className="w-4 h-4"></i> Open Boosters
+                </button>
+                <button
+                  onClick={() => setActiveTab('collection')}
+                  className={`px-4 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 transition-all ${
+                    activeTab === 'collection'
+                      ? 'bg-cyan-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <i data-lucide="grid" className="w-4 h-4"></i> Collection Binder ({uniqueCollectedCount}/{cards.length})
+                </button>
+              </div>
+            </div>
+          </header>
+
+          {/* MAIN CONTENT AREA */}
+          <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6">
+            
+            {/* STATS DASHBOARD BAR */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+              <div className="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center gap-3">
+                <div className="p-2.5 rounded-lg bg-cyan-950 text-cyan-400 border border-cyan-800">
+                  <i data-lucide="box" className="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span className="text-xs text-slate-400 font-medium">Packs Opened</span>
+                  <p className="text-base font-bold text-slate-100">{stats.packsOpened}</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center gap-3">
+                <div className="p-2.5 rounded-lg bg-amber-950 text-amber-400 border border-amber-800">
+                  <i data-lucide="crown" className="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span className="text-xs text-slate-400 font-medium">Mythics Found</span>
+                  <p className="text-base font-bold text-amber-300">{stats.mythics}</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center gap-3">
+                <div className="p-2.5 rounded-lg bg-yellow-950 text-yellow-400 border border-yellow-800">
+                  <i data-lucide="award" className="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span className="text-xs text-slate-400 font-medium">Rares Found</span>
+                  <p className="text-base font-bold text-yellow-200">{stats.rares}</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center gap-3">
+                <div className="p-2.5 rounded-lg bg-emerald-950 text-emerald-400 border border-emerald-800">
+                  <i data-lucide="check-circle-2" className="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span className="text-xs text-slate-400 font-medium">Set Completed</span>
+                  <p className="text-base font-bold text-emerald-300">{setCompletionPercentage}%</p>
+                </div>
+              </div>
+            </div>
+
+            {/* TAB 1: BOOSTER PACK OPENER */}
+            {activeTab === 'booster' && (
+              <div className="space-y-6">
+                
+                {/* Pack Mode Controls */}
+                <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl flex flex-wrap justify-between items-center gap-4 shadow-xl">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-semibold text-slate-300">Pack Logic Mode:</span>
+                    <div className="inline-flex bg-slate-950 p-1 rounded-lg border border-slate-800 text-xs">
+                      <button
+                        onClick={() => setPackMode('pure')}
+                        className={`px-3 py-1 rounded-md transition-all ${
+                          packMode === 'pure' ? 'bg-indigo-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
+                        }`}
+                      >
+                        15-Card Pure Mix
+                      </button>
+                      <button
+                        onClick={() => setPackMode('draft')}
+                        className={`px-3 py-1 rounded-md transition-all ${
+                          packMode === 'draft' ? 'bg-indigo-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
+                        }`}
+                      >
+                        Balanced MTG Draft (1 Rare, 3 Unc, 10 Com, 1 Land)
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    {currentPack.length > 0 && (
+                      <button
+                        onClick={revealAll}
+                        className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition"
+                      >
+                        Reveal All Cards
+                      </button>
+                    )}
+                    <button
+                      onClick={generateBoosterPack}
+                      disabled={isOpeningAnim}
+                      className="px-6 py-2.5 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-cinzel font-bold text-sm rounded-xl shadow-lg shadow-cyan-500/25 transition-all transform active:scale-95 disabled:opacity-50 flex items-center gap-2"
+                    >
+                      <i data-lucide="zap" className="w-4 h-4"></i> Open Booster Pack!
+                    </button>
+                  </div>
+                </div>
+
+                {/* Booster Pack Opening Stage */}
+                {currentPack.length === 0 ? (
+                  <div className="flex flex-col items-center justify-center p-12 border-2 border-dashed border-slate-800 rounded-2xl bg-slate-950/40 text-center min-h-[400px]">
+                    {/* Animated Booster Foil Graphic */}
+                    <div
+                      onClick={generateBoosterPack}
+                      className="cursor-pointer group relative w-56 h-80 rounded-2xl p-4 bg-gradient-to-br from-indigo-900 via-purple-950 to-slate-900 border-2 border-cyan-500/40 shadow-2xl flex flex-col justify-between items-center hover:scale-105 transition-transform duration-300 foil-effect"
+                    >
+                      <div className="w-full text-center py-2 bg-slate-950/70 rounded border border-cyan-500/30">
+                        <span className="font-cinzel text-xs font-extrabold text-cyan-300 tracking-wider">15 CUSTOM CARDS</span>
+                      </div>
+                      
+                      <div className="text-center my-auto">
+                        <i data-lucide="box" className="w-16 h-16 text-cyan-400 mx-auto mb-2 group-hover:rotate-12 transition-transform"></i>
+                        <h3 className="font-cinzel font-black text-xl text-white">RPG SET</h3>
+                        <p className="text-[11px] text-cyan-200/70">Custom Magic Edition</p>
+                      </div>
+
+                      <div className="w-full text-center py-1.5 bg-cyan-600/90 text-white font-bold text-xs rounded shadow">
+                        Click to Rip Open!
+                      </div>
+                    </div>
+                    <p className="mt-4 text-xs text-slate-400">Click the booster pack above to simulate opening your first pack!</p>
+                  </div>
+                ) : (
+                  <div>
+                    <div className="flex justify-between items-center mb-4">
+                      <h2 className="font-cinzel text-sm font-bold text-slate-300 flex items-center gap-2">
+                        <i data-lucide="layers" className="w-4 h-4 text-cyan-400"></i> Opened Cards ({revealedIndices.size} / 15 Revealed)
+                      </h2>
+                      <span className="text-xs text-slate-400">Click any face-down card to reveal it!</span>
+                    </div>
+
+                    {/* Cards Grid / Fan View */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-items-center">
+                      {currentPack.map((card, idx) => {
+                        const isRevealed = revealedIndices.has(idx);
+
+                        return (
+                          <div key={idx} className="relative">
+                            {!isRevealed ? (
+                              /* Face Down Card Back */
+                              <div
+                                onClick={() => revealCard(idx)}
+                                className="w-56 h-[320px] rounded-xl bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 border-2 border-slate-700 p-4 flex flex-col justify-between items-center cursor-pointer shadow-xl hover:scale-105 hover:border-cyan-400 transition-all duration-300 group"
+                              >
+                                <div className="w-full text-right text-[10px] text-slate-500">Card #{idx + 1}</div>
+                                <div className="w-20 h-28 rounded-full border-2 border-cyan-500/30 flex items-center justify-center bg-slate-950/60 group-hover:border-cyan-400 group-hover:shadow-lg group-hover:shadow-cyan-500/20 transition-all">
+                                  <i data-lucide="help-circle" className="w-8 h-8 text-cyan-400"></i>
+                                </div>
+                                <span className="font-cinzel text-xs text-slate-300 font-semibold group-hover:text-cyan-300">
+                                  Click to Reveal
+                                </span>
+                              </div>
+                            ) : (
+                              /* Revealed Card Component */
+                              <CardDisplay card={card} size="md" />
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB 2: COLLECTION BINDER GALLERY */}
+            {activeTab === 'collection' && (
+              <div className="space-y-6">
+                
+                {/* Search & Filter Header Bar */}
+                <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl flex flex-wrap gap-3 items-center justify-between">
+                  <div className="flex flex-wrap items-center gap-2">
+                    
+                    {/* Search Input */}
+                    <div className="relative">
+                      <i data-lucide="search" className="w-4 h-4 absolute left-3 top-2.5 text-slate-500"></i>
+                      <input
+                        type="text"
+                        placeholder="Search card name..."
+                        value={searchQuery}
+                        onChange={e => setSearchQuery(e.target.value)}
+                        className="bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-cyan-500 w-44 sm:w-56"
+                      />
+                    </div>
+
+                    {/* Rarity Filter */}
+                    <select
+                      value={filterRarity}
+                      onChange={e => setFilterRarity(e.target.value)}
+                      className="bg-slate-950 border border-slate-800 text-slate-300 text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-cyan-500"
+                    >
+                      <option value="all">All Rarities</option>
+                      <option value="mythic">Mythic</option>
+                      <option value="rare">Rare</option>
+                      <option value="uncommon">Uncommon</option>
+                      <option value="common">Common</option>
+                    </select>
+
+                    {/* Color Filter */}
+                    <select
+                      value={filterColor}
+                      onChange={e => setFilterColor(e.target.value)}
+                      className="bg-slate-950 border border-slate-800 text-slate-300 text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-cyan-500"
+                    >
+                      <option value="all">All Colors</option>
+                      <option value="W">White (W)</option>
+                      <option value="U">Blue (U)</option>
+                      <option value="B">Black (B)</option>
+                      <option value="R">Red (R)</option>
+                      <option value="G">Green (G)</option>
+                    </select>
+
+                    {/* Type Filter */}
+                    <select
+                      value={filterType}
+                      onChange={e => setFilterType(e.target.value)}
+                      className="bg-slate-950 border border-slate-800 text-slate-300 text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-cyan-500"
+                    >
+                      <option value="all">All Types</option>
+                      <option value="Creature">Creature</option>
+                      <option value="Land">Land</option>
+                      <option value="Artifact">Artifact</option>
+                      <option value="Instant">Instant</option>
+                      <option value="Sorcery">Sorcery</option>
+                      <option value="Enchantment">Enchantment</option>
+                      <option value="Planeswalker">Planeswalker</option>
+                      <option value="Vehicle">Vehicle</option>
+                    </select>
+                  </div>
+
+                  <div className="text-xs text-slate-400">
+                    Showing <span className="text-cyan-400 font-bold">{filteredCollection.length}</span> of {cards.length} cards
+                  </div>
+                </div>
+
+                {/* Collection Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+                  {filteredCollection.map(card => {
+                    const count = inventory[card.name] || 0;
+                    const isCollected = count > 0;
+
+                    return (
+                      <div key={card.id} className="relative group">
+                        
+                        {/* Quantity Badge */}
+                        <div className="absolute -top-2 -right-2 z-20 bg-cyan-600 text-white font-extrabold font-mono text-xs px-2 py-0.5 rounded-full shadow-lg border border-cyan-300">
+                          x{count}
+                        </div>
+
+                        {/* Card Component with Unowned Graying Effect */}
+                        <div className={!isCollected ? "opacity-35 grayscale hover:grayscale-0 transition-all duration-300" : ""}>
+                          <CardDisplay card={card} size="md" />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </main>
+        </div>
+      );
+    }
+
+    // Render React Application
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
